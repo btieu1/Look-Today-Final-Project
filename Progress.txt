@@ -1,0 +1,41 @@
+Project has been going very smoothly. Ian and I recently discussed the scope of our project and what we want once it is completed. What we plan
+on completing for the class is a barebones version of what the scope of out project would be in our discussion. We have decided that we will 
+be making a "skeleton" version of the project, where we implement user-input attributes for each clothing option, a wardrobe class that stores
+all of the clothing, the generic parent class of clothes, and 9 child clothing types of the clothes class. 
+
+Each cloth will have the attributes:
+- Stackable: Whether you can wear multiple items on top of each other (Shirt and Jacket, leggings and pants, etc)
+- Permanent: Whether an item is perminant (prescription glasses)
+- Season/Temperature: Clothing type will have an assigned weather or season. This will be used to match outfits together (sweater for cold, 
+shorts for sun, rain jacket for rain, etc)
+- Color: Rach cloth will have a color. This will be used to match clothes together so the combination will be pleasant.
+- Occassion: Activity the clothes is meant for. Will be used to match clothes together. (Hiking boots will go with windbreaker, button down 
+will go with suit jacket, etc)
+- History: Clothes will not be worn two times in a row. Laundry filter will disable a certain article from being matched.
+
+The wardrobe class will be essential the component where all clothing is organized and stored. We are planning on doing some sort of visual 
+representation for it, but if we do not get to the gui in time we shall keep it hidden and only accessible on request by the user. Upon start
+up, the user will be asked to fill out their wardrobe and insert clothes and will be asked to describe each article of cloth and their 
+listed attrbute. We will have pre-descriptive options instead of the user typing in descriptions.
+
+The sub-classes for clothes are hat, scarf, glasses, shirt, jacket, gloves, pants, socks, and shoes. They will have the attributes listed
+above and will be compared to one another based on matching attributes.
+
+For the matcher will plan on making a matching class that will recomend an outfit based on the cloth attributes that match, with two of the
+attributes being user specified (user enters their mood which determines color pallet, user enters occasion). So for example, if the user 
+enters that they want a warm mood and a date night with significant other, the matcher will go through all clothes and first selects clothes
+together that make warm color pallets (red, orange, yellow) and occassion. Once they narrow all the clothes down to those specfic to that 
+attribute, they will further narrow it down based on the other attributes that are featched from previous data (weather from weather app, 
+history from log of previous outfits). Finally, if their are multiple suggested outfits, the matcher will have a list of possible outfits and
+will display the outfits so that the user can look through the list and pick out which that they desire. 
+
+As for progress so far, we have narrowed down the scope of the project. We have defined all the classes we need so far and have defined them. We 
+have also made constructors for each type of clothes. We have also set up the attributes for each clothes.
+
+We are in the process of creating the matching algorithm, the questions for initializing the wardrobe, and looking into making the GUI at the
+moment. These are our top priority features. Our next order of tasks after that invovles connecting the online features of our project 
+(account creation where outfits are saved and also weather featching) and GUI implementation with a model trying on the clothes. We 
+would also like to connect our project to an online store for "hypothetical" outfits to try combinations of clothes that trys it with
+owned clothes. 
+
+
