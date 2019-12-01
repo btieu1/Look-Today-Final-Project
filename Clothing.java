@@ -1,23 +1,28 @@
-  
-public abstract class Clothing{
-   protected boolean stackable;
-   protected boolean permanent;
+ public abstract class Clothing{
+   protected String stackable;
+   protected String permanent;
    protected String season;
    protected String color;
    protected String occasion;
-   protected String material;
    protected String type;
    protected String ID;
    
-   public Clothing(boolean stackable, boolean permanent, String season, String color, String occasion, String material, String type, String ID){
+   public Clothing(String stackable, String permanent, String season, String color, String occasion, String type, String ID){
       this.stackable = stackable;
       this.permanent = permanent;
       this.season = season;
       this.color = color;
       this.occasion = occasion;
-      this.material = material;
       this.type = type;
       this.ID = ID;
+   }
+   
+   public String getStackable(){
+      return this.stackable;
+   }
+   
+   public String getPermanent(){
+      return this.permanent;
    }
    
    public String getOccasion(){
@@ -89,13 +94,6 @@ public abstract class Clothing{
       return colors;
    }
    
-   public String getMaterial(){
-      return this.material;
-   }
-   
-   public void setMaterial(String material){
-      this.material = material;
-   }
    
    public String getID(){
       return this.ID;
@@ -117,3 +115,4 @@ public abstract class Clothing{
       return this.ID;
    }
 }
+
