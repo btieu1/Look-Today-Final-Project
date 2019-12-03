@@ -2,33 +2,32 @@ import java.util.*;
 
 public class TEST{
    public static void main(String[] args){
+      Hat hat2 = new Hat("true", "true", "winter", "pink", "fancy", "beanie", "hat2");
+      Hat hat1 = new Hat("true", "true", "winter", "black", "casual", "beanie", "hat1");
       
-      Hat hat2 = new Hat(true, true, "winter", "black", "fancy", "cotton", "beanie", "hat2");
-      Hat hat1 = new Hat(true, true, "winter", "black", "casual", "cotton", "beanie", "hat1");
+      Scarf scarf1 = new Scarf("true", "true", "winter", "black", "fancy", "beanie", "scarf1");
+      Scarf scarf2 = new Scarf("true", "true", "winter", "black", "casual", "beanie", "scarf2");
       
-      Scarf scarf1 = new Scarf(true, true, "winter", "black", "fancy", "cotton", "beanie", "scarf1");
-      Scarf scarf2 = new Scarf(true, true, "winter", "black", "casual", "cotton", "beanie", "scarf2");
+      Glasses glasses1 = new Glasses("true", "true", "winter", "pink", "fancy", "beanie", "glasses1");
+      Glasses glasses2 = new Glasses("true", "true", "winter", "black", "casual", "beanie", "glasses2");
       
-      Glasses glasses1 = new Glasses(true, true, "winter", "black", "fancy", "cotton", "beanie", "glasses1");
-      Glasses glasses2 = new Glasses(true, true, "winter", "black", "casual", "cotton", "beanie", "glasses2");
+      Shirt shirt1 = new Shirt("true", "true", "winter", "black", "fancy", "beanie", "hat2");
+      Shirt shirt2 = new Shirt("true", "true", "winter", "black", "casual", "beanie", "hat1");
       
-      Shirt shirt1 = new Shirt(true, true, "winter", "black", "fancy", "cotton", "beanie", "hat2");
-      Shirt shirt2 = new Shirt(true, true, "winter", "black", "casual", "cotton", "beanie", "hat1");
+      Jacket jacket1 = new Jacket("true", "true", "winter", "pink", "fancy", "beanie", "jacket1");
+      Jacket jacket2 = new Jacket("true", "true", "winter", "black", "casual", "beanie", "jacket2");
       
-      Jacket jacket1 = new Jacket(true, true, "winter", "black", "fancy", "cotton", "beanie", "jacket1");
-      Jacket jacket2 = new Jacket(true, true, "winter", "black", "casual", "cotton", "beanie", "jacket2");
+      Glove glove1 = new Glove("true", "true", "winter", "black", "fancy", "beanie", "glove1");
+      Glove glove2 = new Glove("true", "true", "winter", "black", "casual", "beanie", "glove2");
       
-      Glove glove1 = new Glove(true, true, "winter", "black", "fancy", "cotton", "beanie", "glove1");
-      Glove glove2 = new Glove(true, true, "winter", "black", "casual", "cotton", "beanie", "glove2");
+      Pants pant1 = new Pants("true", "true", "winter", "pink", "fancy", "beanie", "pant1");
+      Pants pant2 = new Pants("true", "true", "winter", "black", "casual", "beanie", "pant2");
       
-      Pants pant1 = new Pants(true, true, "winter", "black", "fancy", "cotton", "beanie", "pant1");
-      Pants pant2 = new Pants(true, true, "winter", "black", "casual", "cotton", "beanie", "pant2");
+      Sock sock1 = new Sock("true", "true", "winter", "black", "fancy", "beanie", "sock1");
+      Sock sock2 = new Sock("true", "true", "winter", "black", "casual", "beanie", "sock2");
       
-      Sock sock1 = new Sock(true, true, "winter", "black", "fancy", "cotton", "beanie", "sock1");
-      Sock sock2 = new Sock(true, true, "winter", "black", "casual", "cotton", "beanie", "sock2");
-      
-      Shoe shoe1 = new Shoe(true, true, "winter", "black", "fancy", "cotton", "beanie", "shoe1");
-      Shoe shoe2 = new Shoe(true, true, "winter", "black", "casual", "cotton", "beanie", "shoe2");
+      Shoe shoe1 = new Shoe("true", "true", "winter", "pink", "fancy", "beanie", "shoe1");
+      Shoe shoe2 = new Shoe("true", "true", "winter", "black", "casual", "beanie", "shoe2");
       
       ArrayList<Hat> hats = new ArrayList<Hat>();
       hats.add(hat1);
@@ -68,7 +67,7 @@ public class TEST{
       
       Warddrobe ward = new Warddrobe(hats, scarves, glasses, shirts, jackets, gloves, pants, socks, shoes);
       
-      ward.Condense("fancy", "winter");
+      ward.Condense("fancy", "winter", "gray");
       
       System.out.println(ward);
    }
