@@ -70,6 +70,54 @@ public class Warddrobe{
       
    }
    
+   public String[] getColorPalette(String primeColor){
+      String[] colors = new String[5];
+      if(primeColor.equals("beige")){
+         colors = new String[]{"blue", "brown", "green", "black", "red", "white"};
+      }
+      
+      if(primeColor.equals("black")){
+         colors = new String[]{"blue", "brown", "green", "black", "red", "white", "yellow", "olive", "beige", "lime", "cyan"};
+      }
+      
+      if(primeColor.equals("gray")){
+         colors = new String[]{"purple", "red", "violet", "pink", "blue"};
+      }
+      
+      if(primeColor.equals("pink")){
+         colors = new String[]{"brown", "white", "mint green", "olive", "gray", "turquoise", "light-blue"};
+      }
+      
+      if(primeColor.equals("purple")){
+         colors = new String[]{"gray", "yellow-brown", "lime", "mint-green", "brown"};
+      }
+      
+      if(primeColor.equals("red")){
+         colors = new String[]{"yellow", "white", "fulvous", "green", "blue", "black"};
+      }
+      
+      if(primeColor.equals("brown")){
+         colors = new String[]{"cyan", "cream", "pink", "fawn", "green", "beige"};
+      }
+      
+      if(primeColor.equals("orange")){
+         colors = new String[]{"cyan", "blue", "lilac", "violet", "white", "black"};
+      }
+      
+      if(primeColor.equals("yellow")){
+         colors = new String[]{"blue", "lilac", "light-cyan", "purple", "gray", "black"};
+      }
+      
+      if(primeColor.equals("olive")){
+         colors = new String[]{"orange", "light-brown", "brown"};
+      }
+      
+      if(primeColor.equals("green")){
+         colors = new String[]{"golden-brown", "orange", "salad green", "yellow", "brown", "gray", "cream", "black", "creamy-white"};
+      }
+      
+      return colors;
+   }
    
    public void Condense(String occasion, String season, String primeColor){
       this.sHats = new ArrayList<Hat>();
@@ -86,7 +134,7 @@ public class Warddrobe{
 
       
          for(int j = 0; j < this.wardrobe.size(); j++){
-            if(this.wardrobe.get(j).getOccasion().equals(occasion) && this.wardrobe.get(j).getSeason().equals(season)){
+            if(this.wardrobe.get(j).getOccasion().equals(occasion) && this.wardrobe.get(j).getSeason().equals(season) && Arrays.stream(getColorPalette(primeColor)).anyMatch(this.wardrobe.get(j).getColor()::equals)){
                this.sWardrobe.add(this.wardrobe.get(j));
             }
       }
