@@ -1,4 +1,5 @@
 import java.util.*;
+import java.lang.Math; 
 
 public class Warddrobe{
 
@@ -25,6 +26,7 @@ public class Warddrobe{
    private ArrayList<Sock> sSocks;
    private ArrayList<Shoe> sShoes;
    
+   private Outfit[] outfits;
    //constructor takes in arraylists
    public Warddrobe(ArrayList<Hat> hats, ArrayList<Scarf> scarves,ArrayList<Glasses> glasses, ArrayList<Shirt> shirts, ArrayList<Jacket> jackets, ArrayList<Glove> gloves, ArrayList<Pants> pants, ArrayList<Sock> socks, ArrayList<Shoe> shoes){
       this.hats = hats;
@@ -138,6 +140,230 @@ public class Warddrobe{
                this.sWardrobe.add(this.wardrobe.get(j));
             }
       }
+   }
+   
+   public Outfit[] matches(String occasion, String season, String primeColor){
+      Condense(occasion, season, primeColor);
+      Outfit[] outfits = new Outfit[25];
+      
+      int number = 0; //counts the index of each outfit
+      /*
+      //Occasion is fancy, means no glasses, hat, scarf, gloves
+      if(occasion == "fancy"){
+         while(number<25){ //25 outfits
+            if(Math.random() * 3 == 3){
+            this.shirts = shirts;
+            this.jackets = jackets;
+            this.pants = pants;
+            this.socks = socks;
+            this.shoes = shoes; 
+               Outfit outfit = new Outfit(this.sWardrobe.get(), );
+            }
+         
+            if(Math.random() * 3 == 2){
+               Outfit outfit = new Outfit(this.sWardrobe.get(), );
+            }
+         
+            if(Math.random() * 3 == 1){
+               Outfit outfit = new Outfit(this.sWardrobe.get(), );
+            }
+         
+         outfits[number] = outfit; 
+         }
+         
+         //Occasion is !winter, means no glasses, hat, scarf, gloves
+      if(occasion == "fancy"){
+         while(number<25){ //25 outfits
+            if(Math.random() * 3 == 3){
+            this.shirts = shirts;
+            this.jackets = jackets;
+            this.pants = pants;
+            this.socks = socks;
+            this.shoes = shoes; 
+               Outfit outfit = new Outfit(this.sWardrobe.get(), );
+            }
+         
+            if(Math.random() * 3 == 2){
+               Outfit outfit = new Outfit(this.sWardrobe.get(), );
+            }
+         
+            if(Math.random() * 3 == 1){
+               Outfit outfit = new Outfit(this.sWardrobe.get(), );
+            }
+         
+         outfits[number] = outfit; 
+         }
+      }*/
+      
+      while(number<25){ //25 outfits
+         Clothing[] list = new Clothing[5];
+            if(Math.random() * 3 == 3){
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                     list[0] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                     list[1] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Pants){
+                     list[2] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Sock){
+                     list[3] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                     list[4] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               Outfit outfit = new Outfit(list[0], list[1], list[2], list[3], list[4]);
+               outfits[number] = outfit; 
+               }
+               
+               if(Math.random() * 3 == 2){
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                     list[0] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                     list[1] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Pants){
+                     list[2] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Sock){
+                     list[3] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                     list[4] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               Outfit outfit = new Outfit(list[0], list[1], list[2], list[3], list[4]);
+               outfits[number] = outfit; 
+               }
+               
+               if(Math.random() * 3 == 1){
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                     list[0] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                     list[1] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Pants){
+                     list[2] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Sock){
+                     list[3] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               
+               for(int i = 0; i<this.sWardrobe.size(); i++){
+                  int ran = (int)Math.random()*sWardrobe.size();
+                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                     list[4] = this.sWardrobe.get(ran);
+                  }
+                  break;
+               }
+               Outfit outfit = new Outfit(list[0], list[1], list[2], list[3], list[4]);
+               outfits[number] = outfit; 
+               }
+               number++;
+            }
+            
+         /*
+            if(Math.random() * 3 == 2){
+               this.hats = hats;
+               this.shirts = shirts;
+               this.jackets = jackets;
+               this.pants = pants;
+               this.socks = socks;
+               this.shoes = shoes; 
+               Outfit outfit = new Outfit(this.sWardrobe.get(), );
+            }
+         
+            if(Math.random() * 3 == 1){
+               this.hats = hats;
+               this.scarves = scarves;
+               this.shirts = shirts;
+               this.jackets = jackets;
+               this.pants = pants;
+               this.socks = socks;
+               this.shoes = shoes;
+               Outfit outfit = new Outfit(this.sWardrobe.get(), );
+            }
+         
+         outfits[number] = outfit; 
+         }
+         */
+         this.outfits = outfits;
+      return outfits;
+   }
+   
+   public void printOutfits(){
+      for(int i = 0; i<this.outfits.length; i++){
+         System.out.print(this.outfits[i]+", ");
+         }
    }
    
    public String toString(){
