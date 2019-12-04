@@ -58,10 +58,41 @@ public class TabDemoEXP implements ActionListener{
     private JButton addSocksButton;
     private JButton addShoesButton;
     
+    //JButton to remove clothes from the table
+    private JButton removeGlassesButton;
+    private JButton removeGlovesButton;
+    private JButton removeHatsButton;
+    private JButton removeJacketsButton;
+    private JButton removeScarfsButton;
+    private JButton removeShirtsButton;
+    private JButton removePantsButton;
+    private JButton removeSocksButton;
+    private JButton removeShoesButton;
+    //JLabels for each remove button
+    private JLabel removeGlassesLabel;
+    private JLabel removeGlovesLabel;
+    private JLabel removeHatsLabel;
+    private JLabel removeJacketsLabel;
+    private JLabel removeScarfsLabel;
+    private JLabel removeShirtsLabel;
+    private JLabel removePantsLabel;
+    private JLabel removeSocksLabel;
+    private JLabel removeShoesLabel;
+    //JTextField's for each remove button where users will enter their ID 
+    private JTextField removeGlassesField;
+    private JTextField removeGlovesField;
+    private JTextField removeHatsField;
+    private JTextField removeJacketsField;
+    private JTextField removeScarfsField;
+    private JTextField removeShirtsField;
+    private JTextField removePantsField;
+    private JTextField removeSocksField;
+    private JTextField removeShoesField;
+    
     //*******GLASSES VARIABLES*********
     //*********************************
     //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesGlassesArray = {"N/A"};
+    String[] typesGlassesArray = {"Sunglasses","Prescription Glasses"};
     JComboBox typesGlassesBox = new JComboBox(typesGlassesArray);
     //Box for yes and no
     String[] yesnoArray = {"yes", "no"};
@@ -70,7 +101,7 @@ public class TabDemoEXP implements ActionListener{
     String[] trufalsArray = {"true", "false"};
     JComboBox trufalsBox = new JComboBox(trufalsArray);
     //Box for season types
-    String[] seasonsArray = {"Winter", "Spring", "Summer", "Fall"};
+    String[] seasonsArray = {"N/A"};
     JComboBox seasonsBox = new JComboBox(seasonsArray);
     //Box for Colors
     String[] colorsArray = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green"};
@@ -105,7 +136,7 @@ public class TabDemoEXP implements ActionListener{
     String[] trufalsArray1 = {"true", "false"};
     JComboBox trufalsBox1 = new JComboBox(trufalsArray1);
     //Box for season types
-    String[] seasonsArray1 = {"Winter", "Spring", "Summer", "Fall"};
+    String[] seasonsArray1 = {"N/A"};
     JComboBox seasonsBox1 = new JComboBox(seasonsArray1);
     //Box for Colors
     String[] colorsArray1 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green"};
@@ -130,13 +161,13 @@ public class TabDemoEXP implements ActionListener{
     //JTabel that will display all the clothes 
     private JTable clothingListTable1;
     //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesGlovesArray = {"N/A"};
+    String[] typesGlovesArray = {"Velvet", "Leather", "Silk"};
     JComboBox typesGlovesBox = new JComboBox(typesGlovesArray);
     
     //*******HATS VARIABLES*********
     //*********************************
     //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesHatsArray = {"N/A"};
+    String[] typesHatsArray = {"Top Hat", "Fedora", "Sombrero", "Sports Cap", "Sun Hat"};
     JComboBox typesHatsBox = new JComboBox(typesHatsArray);
     //Box for yes and no
     String[] yesnoArray2 = {"yes", "no"};
@@ -174,7 +205,7 @@ public class TabDemoEXP implements ActionListener{
     //*****JACKETS VARIABLES********
     //*****************************
     //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesJacketsArray = {"N/A"};
+    String[] typesJacketsArray = {"Vest", "Leather", "Sweatshirt", "Hoodie", "Sweater", "Trenchcoat"};
     JComboBox typesJacketsBox = new JComboBox(typesJacketsArray);
     //Box for yes and no
     String[] yesnoArray3 = {"yes", "no"};
@@ -211,7 +242,7 @@ public class TabDemoEXP implements ActionListener{
     //*******SCARFS VARIABLES*********
     //*********************************
     //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesScarfsArray = {"N/A"};
+    String[] typesScarfsArray = {"Fur", "Wool", "Silk", "Plaid"};
     JComboBox typesScarfsBox = new JComboBox(typesScarfsArray);
     //Box for yes and no
     String[] yesnoArray4 = {"yes", "no"};
@@ -248,7 +279,7 @@ public class TabDemoEXP implements ActionListener{
     //*******SHIRTS VARIABLES*********
     //*********************************
     //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesShirtsArray = {"N/A"};
+    String[] typesShirtsArray = {"Long Sleeved Cotton", "Short Sleeved Cotton", "Long Sleeved Athletic", "Short Sleeved Athletic", "Long Sleeved Wool", "Short Sleeved Wool", "Muscle Shirt"};
     JComboBox typesShirtsBox = new JComboBox(typesShirtsArray);
     //Box for yes and no
     String[] yesnoArray5 = {"yes", "no"};
@@ -284,7 +315,7 @@ public class TabDemoEXP implements ActionListener{
     //*******PANTS VARIABLES*********
     //*********************************
     //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesPantsArray = {"N/A"};
+    String[] typesPantsArray = {"Jean Shorts", "Jean Pants", "Khaki Pants", "Khaki Shorts", "Sport Pants", "Athletic Shorts", "Lined Jeans"};
     JComboBox typesPantsBox = new JComboBox(typesPantsArray);
     //Box for yes and no
     String[] yesnoArray6 = {"yes", "no"};
@@ -321,7 +352,7 @@ public class TabDemoEXP implements ActionListener{
     //*******SHOES VARIABLES*********
     //*********************************
     //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesShoesArray = {"N/A"};
+    String[] typesShoesArray = {"Sneakers", "Flip Flops", "Basketball", "Cleats", "Nike", "Adidas", "Sperry", "Suede", "Dress", "Boots"};
     JComboBox typesShoesBox = new JComboBox(typesShoesArray);
     //Box for yes and no
     String[] yesnoArray7 = {"yes", "no"};
@@ -358,7 +389,7 @@ public class TabDemoEXP implements ActionListener{
     //*******SOCKS VARIABLES*********
     //*********************************
     //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesSocksArray = {"N/A"};
+    String[] typesSocksArray = {"Long Wool", "Nike", "Ankle", "Silk"};
     JComboBox typesSocksBox = new JComboBox(typesSocksArray);
     //Box for yes and no
     String[] yesnoArray8 = {"yes", "no"};
@@ -403,9 +434,18 @@ public class TabDemoEXP implements ActionListener{
         //Create table to add clothes 
         JLabel tableLabel = new JLabel("Glasses");
         
+        //the add button
         addGlassesButton = new JButton("Add");
         addGlassesButton.addActionListener(this);
         
+        //the remove button and corresponding remove field as well as remove label
+        removeGlassesButton = new JButton("Remove");
+        removeGlassesButton. addActionListener(this);
+        
+        removeGlassesLabel = new JLabel("Enter ID to remove:");
+        
+        removeGlassesField = new JTextField("");
+        removeGlassesField.setEditable(true);
         
         idField.setEditable(true);
         //initialize table
@@ -548,8 +588,27 @@ public class TabDemoEXP implements ActionListener{
         layoutConst.gridx = 8;
         layoutConst.gridy = 4;
         glassesPanel.add(addGlassesButton, layoutConst);
+        //new remove button implementation*****************
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 5;
+        glassesPanel.add(removeGlassesButton, layoutConst);
         
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 5;
+        glassesPanel.add(removeGlassesLabel, layoutConst);
         
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 5;
+        glassesPanel.add(removeGlassesField, layoutConst);
         // ***GLOVES Panel*** 
         
         //VARIABLE DEFINTIONS
@@ -565,6 +624,15 @@ public class TabDemoEXP implements ActionListener{
         
         addGlovesButton = new JButton("Add");
         addGlovesButton.addActionListener(this);
+        
+        //the remove button and corresponding remove field as well as remove label
+        removeGlovesButton = new JButton("Remove");
+        removeGlovesButton. addActionListener(this);
+        
+        removeGlovesLabel = new JLabel("Enter ID to remove:");
+        
+        removeGlovesField = new JTextField("");
+        removeGlovesField.setEditable(true);
         
         //initialize table
         Object[][] tableVals1 = new Object[10][7];
@@ -707,13 +775,28 @@ public class TabDemoEXP implements ActionListener{
         layoutConst1.gridy = 4;
         glovesPanel.add(addGlovesButton, layoutConst1);
         
-        // ***HAT Panel***
+        //new remove button implementation*****************
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 5;
+        glovesPanel.add(removeGlovesButton, layoutConst);
         
-        //VARIABLE DEFINITIONS
-        //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesHatsArray = {"N/A"};
-    JComboBox typesHatsBox = new JComboBox(typesHatsArray);
-        //END OF VARIABLE DEFINITIONS
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 5;
+        glovesPanel.add(removeGlovesLabel, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 5;
+        glovesPanel.add(removeGlovesField, layoutConst);
+        // ***HAT Panel***
         
         JPanel hatsPanel = new JPanel();
         //Create table to add clothes 
@@ -721,6 +804,15 @@ public class TabDemoEXP implements ActionListener{
         
         addHatsButton = new JButton("Add");
         addHatsButton.addActionListener(this);
+        
+        //the remove button and corresponding remove field as well as remove label
+        removeHatsButton = new JButton("Remove");
+        removeHatsButton. addActionListener(this);
+        
+        removeHatsLabel = new JLabel("Enter ID to remove:");
+        
+        removeHatsField = new JTextField("");
+        removeHatsField.setEditable(true);
         
         idField2.setEditable(true);
         //initialize table
@@ -863,13 +955,31 @@ public class TabDemoEXP implements ActionListener{
         layoutConst2.gridx = 8;
         layoutConst2.gridy = 4;
         hatsPanel.add(addHatsButton, layoutConst2);
+        //new remove button implementation*****************
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 5;
+        hatsPanel.add(removeHatsButton, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 5;
+        hatsPanel.add(removeHatsLabel, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 5;
+        hatsPanel.add(removeHatsField, layoutConst);
+        
         // ***JACKET Panel***
         
         //VARIABLE DEFINITIONS
-        //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesJacketsArray = {"N/A"};
-    JComboBox typesJacketsBox = new JComboBox(typesJacketsArray);
-        //END OF VARIABLE DEFINITIONS
         
         JPanel jacketsPanel = new JPanel();
         
@@ -878,6 +988,15 @@ public class TabDemoEXP implements ActionListener{
         
         addJacketsButton = new JButton("Add");
         addJacketsButton.addActionListener(this);
+        
+        //the remove button and corresponding remove field as well as remove label
+        removeJacketsButton = new JButton("Remove");
+        removeJacketsButton. addActionListener(this);
+        
+        removeJacketsLabel = new JLabel("Enter ID to remove:");
+        
+        removeJacketsField = new JTextField("");
+        removeJacketsField.setEditable(true);
         
         //initialize table
         Object[][] tableVals3 = new Object[10][7];
@@ -1021,14 +1140,29 @@ public class TabDemoEXP implements ActionListener{
         layoutConst3.gridy = 4;
         jacketsPanel.add(addJacketsButton, layoutConst3);
 
+        //new remove button implementation*****************
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 5;
+        jacketsPanel.add(removeJacketsButton, layoutConst);
         
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 5;
+        jacketsPanel.add(removeJacketsLabel, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 5;
+        jacketsPanel.add(removeJacketsField, layoutConst);
         // SCARVES Panel
         
-        //VARIABLE DEFINITIONS
-        //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesScarfsArray = {"N/A"};
-    JComboBox typesScarfsBox = new JComboBox(typesScarfsArray);
-        //END OF VARIABLE DEFINITIONS
         
         JPanel scarfsPanel = new JPanel();       
         
@@ -1037,6 +1171,15 @@ public class TabDemoEXP implements ActionListener{
         
         addScarfsButton = new JButton("Add");
         addScarfsButton.addActionListener(this);
+        
+        //the remove button and corresponding remove field as well as remove label
+        removeScarfsButton = new JButton("Remove");
+        removeScarfsButton. addActionListener(this);
+        
+        removeScarfsLabel = new JLabel("Enter ID to remove:");
+        
+        removeScarfsField = new JTextField("");
+        removeScarfsField.setEditable(true);
         
         //initialize table
         Object[][] tableVals4 = new Object[10][7];
@@ -1180,13 +1323,31 @@ public class TabDemoEXP implements ActionListener{
         layoutConst4.gridy = 4;
         scarfsPanel.add(addScarfsButton, layoutConst4);
         
+        //new remove button implementation*****************
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 5;
+        scarfsPanel.add(removeScarfsButton, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 5;
+        scarfsPanel.add(removeScarfsLabel, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 5;
+        scarfsPanel.add(removeScarfsField, layoutConst);
+        
         // SHIRTS Panel
         
         //VARIABLE DEFINITIONS
-        //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesShirtsArray = {"N/A"};
-    JComboBox typesShirtsBox = new JComboBox(typesShirtsArray);
-        //END OF VARIABLE DEFINITIONS
         
         JPanel shirtsPanel = new JPanel();
         
@@ -1195,6 +1356,15 @@ public class TabDemoEXP implements ActionListener{
         
         addShirtsButton = new JButton("Add");
         addShirtsButton.addActionListener(this);
+        
+        //the remove button and corresponding remove field as well as remove label
+        removeShirtsButton = new JButton("Remove");
+        removeShirtsButton. addActionListener(this);
+        
+        removeShirtsLabel = new JLabel("Enter ID to remove:");
+        
+        removeShirtsField = new JTextField("");
+        removeShirtsField.setEditable(true);
         
         //initialize table
         Object[][] tableVals5 = new Object[10][7];
@@ -1338,13 +1508,29 @@ public class TabDemoEXP implements ActionListener{
         layoutConst5.gridy = 5;
         shirtsPanel.add(addShirtsButton, layoutConst5);
         
-        // PANTS Panel
+        //new remove button implementation*****************
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 5;
+        shirtsPanel.add(removeShirtsButton, layoutConst);
         
-        //VARIABLE DEFINITIONS
-        //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesPantsArray = {"N/A"};
-    JComboBox typesPantsBox = new JComboBox(typesPantsArray);
-        //END OF VARIABLE DEFINITIONS
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 5;
+        shirtsPanel.add(removeShirtsLabel, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 5;
+        shirtsPanel.add(removeShirtsField, layoutConst);
+        
+        // PANTS Panel
         
         JPanel pantsPanel = new JPanel();
         
@@ -1353,6 +1539,15 @@ public class TabDemoEXP implements ActionListener{
         
         addPantsButton = new JButton("Add");
         addPantsButton.addActionListener(this);
+        
+        //the remove button and corresponding remove field as well as remove label
+        removePantsButton = new JButton("Remove");
+        removePantsButton. addActionListener(this);
+        
+        removePantsLabel = new JLabel("Enter ID to remove:");
+        
+        removePantsField = new JTextField("");
+        removePantsField.setEditable(true);
         
         //initialize table
         Object[][] tableVals6 = new Object[10][7];
@@ -1496,14 +1691,29 @@ public class TabDemoEXP implements ActionListener{
         layoutConst6.gridy = 6;
         pantsPanel.add(addPantsButton, layoutConst6);
 
+        //new remove button implementation*****************
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 5;
+        pantsPanel.add(removePantsButton, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 5;
+        pantsPanel.add(removePantsLabel, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 5;
+        pantsPanel.add(removePantsField, layoutConst);
         
         // SHOES Panel
-        
-        //VARIABLE DEFINITIONS
-        //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesShoesArray = {"N/A"};
-    JComboBox typesShoesBox = new JComboBox(typesShoesArray);
-        //END OF VARIABLE DEFINITIONS
         
         JPanel shoesPanel = new JPanel();
         //Create table to add clothes 
@@ -1511,6 +1721,15 @@ public class TabDemoEXP implements ActionListener{
         
         addShoesButton = new JButton("Add");
         addShoesButton.addActionListener(this);
+        
+        //the remove button and corresponding remove field as well as remove label
+        removeShoesButton = new JButton("Remove");
+        removeShoesButton. addActionListener(this);
+        
+        removeShoesLabel = new JLabel("Enter ID to remove:");
+        
+        removeShoesField = new JTextField("");
+        removeShoesField.setEditable(true);
         
         //initialize table
         Object[][] tableVals7 = new Object[10][7];
@@ -1653,13 +1872,30 @@ public class TabDemoEXP implements ActionListener{
         layoutConst7.gridx = 8;
         layoutConst7.gridy = 7;
         shoesPanel.add(addShoesButton, layoutConst7);
-        // SOCKS Panel
         
-        //VARIABLE DEFINITIONS
-        //Box for types - I NEED TO ADD DIFFERENT TYPES FOR EACH DIFFERENT CLOTHING TYPE
-    String[] typesSocksArray = {"N/A"};
-    JComboBox typesSocksBox = new JComboBox(typesSocksArray);
-        //END OF VARIABLE DEFINITIONS
+        //new remove button implementation*****************
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 5;
+        shoesPanel.add(removeShoesButton, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 5;
+        shoesPanel.add(removeShoesLabel, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 5;
+        shoesPanel.add(removeShoesField, layoutConst);
+        
+        // SOCKS Panel
         
         JPanel socksPanel = new JPanel();
         
@@ -1668,6 +1904,15 @@ public class TabDemoEXP implements ActionListener{
         
         addSocksButton = new JButton("Add");
         addSocksButton.addActionListener(this);
+        
+        //the remove button and corresponding remove field as well as remove label
+        removeSocksButton = new JButton("Remove");
+        removeSocksButton. addActionListener(this);
+        
+        removeSocksLabel = new JLabel("Enter ID to remove:");
+        
+        removeSocksField = new JTextField("");
+        removeSocksField.setEditable(true);
         
         //initialize table
         Object[][] tableVals8 = new Object[10][8];
@@ -1811,6 +2056,28 @@ public class TabDemoEXP implements ActionListener{
         layoutConst8.gridy = 8;
         socksPanel.add(addSocksButton, layoutConst8);
         
+        //new remove button implementation*****************
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 5;
+        socksPanel.add(removeSocksButton, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 5;
+        socksPanel.add(removeSocksLabel, layoutConst);
+        
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets = new Insets(0, 10, 10, 5);
+        layoutConst.fill = GridBagConstraints.HORIZONTAL;
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 5;
+        socksPanel.add(removeSocksField, layoutConst);
+        
         // OUTFIT Panel
         
         //VARIABLE DEFINITIONS
@@ -1896,6 +2163,8 @@ public class TabDemoEXP implements ActionListener{
       final int num6 = 6;       // Col num for amount paid
       int i;
       
+      
+      //THESE ARE ALL CHECKING FOR ADD BUTTONS
       if(sourceEvent == addGlassesButton){
       //getting all the values in the input table so that a new clothing object can be made from the specified attributes      
       String stackable = (String)trufalsBox.getSelectedItem();
@@ -1909,7 +2178,9 @@ public class TabDemoEXP implements ActionListener{
          //add the clothing type         
          Glasses addGlasses = new Glasses(stackable, permanent, season, color, occasion, type, id); 
          glassesArray.add(addGlasses);
-       
+         
+         //TESTING
+         
          for (i = 0; i < NUM_CLOTHES && i < glassesArray.size(); ++i) {
             if (glassesArray.get(i) == null) { // Clear table entries 
                clothingListTable.setValueAt(null, i, num0);
@@ -1928,6 +2199,8 @@ public class TabDemoEXP implements ActionListener{
                clothingListTable.setValueAt(glassesArray.get(i).getOccasion(), i, num4);
                clothingListTable.setValueAt(glassesArray.get(i).getType(), i, num5);
                clothingListTable.setValueAt(glassesArray.get(i).getID(), i, num6);
+               //TESTING
+               System.out.println(glassesArray.get(i).getID());
             }
          }  
       }
@@ -1936,11 +2209,11 @@ public class TabDemoEXP implements ActionListener{
          String stackable1 = (String)trufalsBox1.getSelectedItem();
          String permanent1 = (String)yesnoBox1.getSelectedItem();
          String season1 = (String)seasonsBox1.getSelectedItem();
-         String color1 = (String)colorsBox.getSelectedItem();
-         String occasion1 = (String)occasionsBox.getSelectedItem();
-         String id1 = idField.getText();
+         String color1 = (String)colorsBox1.getSelectedItem();
+         String occasion1 = (String)occasionsBox1.getSelectedItem();
+         String id1 = idField1.getText();
          //get the specific type for Glasses
-         String type1 = (String)typesGlassesBox.getSelectedItem();
+         String type1 = (String)typesGlovesBox.getSelectedItem();
          //add the clothing type         
          Glove addGloves = new Glove(stackable1, permanent1, season1, color1, occasion1, type1, id1); 
          glovesArray.add(addGloves);
@@ -1973,7 +2246,7 @@ public class TabDemoEXP implements ActionListener{
          String season2 = (String)seasonsBox2.getSelectedItem();
          String color2 = (String)colorsBox2.getSelectedItem();
          String occasion2 = (String)occasionsBox2.getSelectedItem();
-         String id2 = idField1.getText();
+         String id2 = idField2.getText();
          //get the specific type for Hats
          String type2 = (String)typesHatsBox.getSelectedItem();
          //add the clothing type         
@@ -2008,7 +2281,7 @@ public class TabDemoEXP implements ActionListener{
          String season3 = (String)seasonsBox3.getSelectedItem();
          String color3 = (String)colorsBox3.getSelectedItem();
          String occasion3 = (String)occasionsBox3.getSelectedItem();
-         String id3 = idField1.getText();
+         String id3 = idField3.getText();
          //get the specific type for Jackets
          String type3 = (String)typesJacketsBox.getSelectedItem();
          //add the clothing type         
@@ -2043,7 +2316,7 @@ public class TabDemoEXP implements ActionListener{
          String season4 = (String)seasonsBox4.getSelectedItem();
          String color4 = (String)colorsBox4.getSelectedItem();
          String occasion4 = (String)occasionsBox4.getSelectedItem();
-         String id4 = idField1.getText();
+         String id4 = idField4.getText();
          //get the specific type for Scarfs
          String type4 = (String)typesScarfsBox.getSelectedItem();
          //add the clothing type         
@@ -2212,8 +2485,297 @@ public class TabDemoEXP implements ActionListener{
             }
          }  
       }
+      else if(sourceEvent == removeGlassesButton){
+         String id = removeGlassesField.getText();
+         for(i = 0; i<glassesArray.size();i++){
+            if(glassesArray.get(i).getID().equals(id)){
+               glassesArray.remove(i);     
+               i = i-1;          
+            }
+         }
+         ArrayList<Glasses> nglassesArray = glassesArray;
+         for (i = 0; i < NUM_CLOTHES; i++) {
+            clothingListTable.setValueAt(null, i, num0);
+            clothingListTable.setValueAt(null, i, num1);
+            clothingListTable.setValueAt(null, i, num2);
+            clothingListTable.setValueAt(null, i, num3);
+            clothingListTable.setValueAt(null, i, num4);
+            clothingListTable.setValueAt(null, i, num5);
+            clothingListTable.setValueAt(null, i, num6);
+         }
+         i = 0;
+         while(i<nglassesArray.size() && nglassesArray.get(i)!=null) {                             // Update table with content in the clothingListArray ArrayList
+               clothingListTable.setValueAt(nglassesArray.get(i).getStackable(), i, num0);
+               clothingListTable.setValueAt(nglassesArray.get(i).getPermanent(), i, num1);
+               clothingListTable.setValueAt(nglassesArray.get(i).getSeason(), i, num2);
+               clothingListTable.setValueAt(nglassesArray.get(i).getColor(), i, num3);
+               clothingListTable.setValueAt(nglassesArray.get(i).getOccasion(), i, num4);
+               clothingListTable.setValueAt(nglassesArray.get(i).getType(), i, num5);
+               clothingListTable.setValueAt(nglassesArray.get(i).getID(), i, num6);
+               i = i+1;
+               // Update table with content in the clothingListArray ArrayList
+         }
+      
+      }
+      else if(sourceEvent == removeGlovesButton){
+         String id1 = removeGlovesField.getText();
+         for(i = 0; i<glovesArray.size();i++){
+            if(glovesArray.get(i).getID().equals(id1)){
+               glovesArray.remove(i);     
+               i = i-1;          
+            }
+         }
+         ArrayList<Glove> nglovesArray = glovesArray;
+         for (i = 0; i < NUM_CLOTHES; i++) {
+            clothingListTable1.setValueAt(null, i, num0);
+            clothingListTable1.setValueAt(null, i, num1);
+            clothingListTable1.setValueAt(null, i, num2);
+            clothingListTable1.setValueAt(null, i, num3);
+            clothingListTable1.setValueAt(null, i, num4);
+            clothingListTable1.setValueAt(null, i, num5);
+            clothingListTable1.setValueAt(null, i, num6);
+         }
+         i = 0;
+         while(i<nglovesArray.size() && nglovesArray.get(i)!=null) {                             // Update table with content in the clothingListArray ArrayList
+               clothingListTable1.setValueAt(nglovesArray.get(i).getStackable(), i, num0);
+               clothingListTable1.setValueAt(nglovesArray.get(i).getPermanent(), i, num1);
+               clothingListTable1.setValueAt(nglovesArray.get(i).getSeason(), i, num2);
+               clothingListTable1.setValueAt(nglovesArray.get(i).getColor(), i, num3);
+               clothingListTable1.setValueAt(nglovesArray.get(i).getOccasion(), i, num4);
+               clothingListTable1.setValueAt(nglovesArray.get(i).getType(), i, num5);
+               clothingListTable1.setValueAt(nglovesArray.get(i).getID(), i, num6);
+               i = i+1;
+               // Update table with content in the clothingListArray ArrayList
+         }
+      
+      }
+      else if(sourceEvent == removeHatsButton){
+         String id = removeHatsField.getText();
+         for(i = 0; i<hatArray.size();i++){
+            if(hatArray.get(i).getID().equals(id)){
+               hatArray.remove(i);     
+               i = i-1;          
+            }
+         }
+         ArrayList<Hat> nhatsArray = hatArray;
+         for (i = 0; i < NUM_CLOTHES; i++) {
+            clothingListTable2.setValueAt(null, i, num0);
+            clothingListTable2.setValueAt(null, i, num1);
+            clothingListTable2.setValueAt(null, i, num2);
+            clothingListTable2.setValueAt(null, i, num3);
+            clothingListTable2.setValueAt(null, i, num4);
+            clothingListTable2.setValueAt(null, i, num5);
+            clothingListTable2.setValueAt(null, i, num6);
+         }
+         i = 0;
+         while(i<nhatsArray.size() && nhatsArray.get(i)!=null) {                             // Update table with content in the clothingListArray ArrayList
+               clothingListTable2.setValueAt(nhatsArray.get(i).getStackable(), i, num0);
+               clothingListTable2.setValueAt(nhatsArray.get(i).getPermanent(), i, num1);
+               clothingListTable.setValueAt(nhatsArray.get(i).getSeason(), i, num2);
+               clothingListTable2.setValueAt(nhatsArray.get(i).getColor(), i, num3);
+               clothingListTable2.setValueAt(nhatsArray.get(i).getOccasion(), i, num4);
+               clothingListTable2.setValueAt(nhatsArray.get(i).getType(), i, num5);
+               clothingListTable2.setValueAt(nhatsArray.get(i).getID(), i, num6);
+               i = i+1;
+               // Update table with content in the clothingListArray ArrayList
+         }
+      
+      }
+      else if(sourceEvent == removeJacketsButton){
+         String id = removeJacketsField.getText();
+         for(i = 0; i<jacketArray.size();i++){
+            if(jacketArray.get(i).getID().equals(id)){
+               jacketArray.remove(i);     
+               i = i-1;          
+            }
+         }
+         ArrayList<Jacket> njacketsArray = jacketArray;
+         for (i = 0; i < NUM_CLOTHES; i++) {
+            clothingListTable3.setValueAt(null, i, num0);
+            clothingListTable3.setValueAt(null, i, num1);
+            clothingListTable3.setValueAt(null, i, num2);
+            clothingListTable3.setValueAt(null, i, num3);
+            clothingListTable3.setValueAt(null, i, num4);
+            clothingListTable3.setValueAt(null, i, num5);
+            clothingListTable3.setValueAt(null, i, num6);
+         }
+         i = 0;
+         while(i<njacketsArray.size() && njacketsArray.get(i)!=null) {                             // Update table with content in the clothingListArray ArrayList
+               clothingListTable3.setValueAt(njacketsArray.get(i).getStackable(), i, num0);
+               clothingListTable3.setValueAt(njacketsArray.get(i).getPermanent(), i, num1);
+               clothingListTable3.setValueAt(njacketsArray.get(i).getSeason(), i, num2);
+               clothingListTable3.setValueAt(njacketsArray.get(i).getColor(), i, num3);
+               clothingListTable3.setValueAt(njacketsArray.get(i).getOccasion(), i, num4);
+               clothingListTable3.setValueAt(njacketsArray.get(i).getType(), i, num5);
+               clothingListTable3.setValueAt(njacketsArray.get(i).getID(), i, num6);
+               i = i+1;
+               // Update table with content in the clothingListArray ArrayList
+         }
+      
+      }
+      else if(sourceEvent == removeScarfsButton){
+         String id = removeScarfsField.getText();
+         for(i = 0; i<scarfArray.size();i++){
+            if(scarfArray.get(i).getID().equals(id)){
+               scarfArray.remove(i);     
+               i = i-1;          
+            }
+         }
+         ArrayList<Scarf> nscarfsArray = scarfArray;
+         for (i = 0; i < NUM_CLOTHES; i++) {
+            clothingListTable4.setValueAt(null, i, num0);
+            clothingListTable4.setValueAt(null, i, num1);
+            clothingListTable4.setValueAt(null, i, num2);
+            clothingListTable4.setValueAt(null, i, num3);
+            clothingListTable4.setValueAt(null, i, num4);
+            clothingListTable4.setValueAt(null, i, num5);
+            clothingListTable4.setValueAt(null, i, num6);
+         }
+         i = 0;
+         while(i<nscarfsArray.size() && nscarfsArray.get(i)!=null) {                             // Update table with content in the clothingListArray ArrayList
+               clothingListTable4.setValueAt(nscarfsArray.get(i).getStackable(), i, num0);
+               clothingListTable4.setValueAt(nscarfsArray.get(i).getPermanent(), i, num1);
+               clothingListTable4.setValueAt(nscarfsArray.get(i).getSeason(), i, num2);
+               clothingListTable4.setValueAt(nscarfsArray.get(i).getColor(), i, num3);
+               clothingListTable4.setValueAt(nscarfsArray.get(i).getOccasion(), i, num4);
+               clothingListTable4.setValueAt(nscarfsArray.get(i).getType(), i, num5);
+               clothingListTable4.setValueAt(nscarfsArray.get(i).getID(), i, num6);
+               i = i+1;
+               // Update table with content in the clothingListArray ArrayList
+         }
+      
+      }
+      else if(sourceEvent == removeShirtsButton){
+         String id = removeShirtsField.getText();
+         for(i = 0; i<shirtArray.size();i++){
+            if(shirtArray.get(i).getID().equals(id)){
+               shirtArray.remove(i);     
+               i = i-1;          
+            }
+         }
+         ArrayList<Shirt> nshirtsArray = shirtArray;
+         for (i = 0; i < NUM_CLOTHES; i++) {
+            clothingListTable5.setValueAt(null, i, num0);
+            clothingListTable5.setValueAt(null, i, num1);
+            clothingListTable5.setValueAt(null, i, num2);
+            clothingListTable5.setValueAt(null, i, num3);
+            clothingListTable5.setValueAt(null, i, num4);
+            clothingListTable5.setValueAt(null, i, num5);
+            clothingListTable5.setValueAt(null, i, num6);
+         }
+         i = 0;
+         while(i<nshirtsArray.size() && nshirtsArray.get(i)!=null) {                             // Update table with content in the clothingListArray ArrayList
+               clothingListTable5.setValueAt(nshirtsArray.get(i).getStackable(), i, num0);
+               clothingListTable5.setValueAt(nshirtsArray.get(i).getPermanent(), i, num1);
+               clothingListTable5.setValueAt(nshirtsArray.get(i).getSeason(), i, num2);
+               clothingListTable5.setValueAt(nshirtsArray.get(i).getColor(), i, num3);
+               clothingListTable5.setValueAt(nshirtsArray.get(i).getOccasion(), i, num4);
+               clothingListTable5.setValueAt(nshirtsArray.get(i).getType(), i, num5);
+               clothingListTable5.setValueAt(nshirtsArray.get(i).getID(), i, num6);
+               i = i+1;
+               // Update table with content in the clothingListArray ArrayList
+         }
+      
+      }
+      else if(sourceEvent == removePantsButton){
+         String id = removePantsField.getText();
+         for(i = 0; i<pantsArray.size();i++){
+            if(pantsArray.get(i).getID().equals(id)){
+               pantsArray.remove(i);     
+               i = i-1;          
+            }
+         }
+         ArrayList<Pants> npantsArray = pantsArray;
+         for (i = 0; i < NUM_CLOTHES; i++) {
+            clothingListTable6.setValueAt(null, i, num0);
+            clothingListTable6.setValueAt(null, i, num1);
+            clothingListTable6.setValueAt(null, i, num2);
+            clothingListTable6.setValueAt(null, i, num3);
+            clothingListTable6.setValueAt(null, i, num4);
+            clothingListTable6.setValueAt(null, i, num5);
+            clothingListTable6.setValueAt(null, i, num6);
+         }
+         i = 0;
+         while(i<npantsArray.size() && npantsArray.get(i)!=null) {                             // Update table with content in the clothingListArray ArrayList
+               clothingListTable6.setValueAt(npantsArray.get(i).getStackable(), i, num0);
+               clothingListTable6.setValueAt(npantsArray.get(i).getPermanent(), i, num1);
+               clothingListTable6.setValueAt(npantsArray.get(i).getSeason(), i, num2);
+               clothingListTable6.setValueAt(npantsArray.get(i).getColor(), i, num3);
+               clothingListTable6.setValueAt(npantsArray.get(i).getOccasion(), i, num4);
+               clothingListTable6.setValueAt(npantsArray.get(i).getType(), i, num5);
+               clothingListTable6.setValueAt(npantsArray.get(i).getID(), i, num6);
+               i = i+1;
+               // Update table with content in the clothingListArray ArrayList
+         }
+      
+      }
+      else if(sourceEvent == removeShoesButton){
+         String id = removeShoesField.getText();
+         for(i = 0; i<shoeArray.size();i++){
+            if(shoeArray.get(i).getID().equals(id)){
+               shoeArray.remove(i);     
+               i = i-1;          
+            }
+         }
+         ArrayList<Shoe> nshoesArray = shoeArray;
+         for (i = 0; i < NUM_CLOTHES; i++) {
+            clothingListTable7.setValueAt(null, i, num0);
+            clothingListTable7.setValueAt(null, i, num1);
+            clothingListTable7.setValueAt(null, i, num2);
+            clothingListTable7.setValueAt(null, i, num3);
+            clothingListTable7.setValueAt(null, i, num4);
+            clothingListTable7.setValueAt(null, i, num5);
+            clothingListTable7.setValueAt(null, i, num6);
+         }
+         i = 0;
+         while(i<nshoesArray.size() && nshoesArray.get(i)!=null) {                             // Update table with content in the clothingListArray ArrayList
+               clothingListTable7.setValueAt(nshoesArray.get(i).getStackable(), i, num0);
+               clothingListTable7.setValueAt(nshoesArray.get(i).getPermanent(), i, num1);
+               clothingListTable7.setValueAt(nshoesArray.get(i).getSeason(), i, num2);
+               clothingListTable7.setValueAt(nshoesArray.get(i).getColor(), i, num3);
+               clothingListTable7.setValueAt(nshoesArray.get(i).getOccasion(), i, num4);
+               clothingListTable7.setValueAt(nshoesArray.get(i).getType(), i, num5);
+               clothingListTable7.setValueAt(nshoesArray.get(i).getID(), i, num6);
+               i = i+1;
+               // Update table with content in the clothingListArray ArrayList
+         }
+      
+      }
+      else if(sourceEvent == removeSocksButton){
+         String id = removeSocksField.getText();
+         for(i = 0; i<sockArray.size();i++){
+            if(sockArray.get(i).getID().equals(id)){
+               sockArray.remove(i);     
+               i = i-1;          
+            }
+         }
+         ArrayList<Sock> nsocksArray = sockArray;
+         for (i = 0; i < NUM_CLOTHES; i++) {
+            clothingListTable8.setValueAt(null, i, num0);
+            clothingListTable8.setValueAt(null, i, num1);
+            clothingListTable8.setValueAt(null, i, num2);
+            clothingListTable8.setValueAt(null, i, num3);
+            clothingListTable8.setValueAt(null, i, num4);
+            clothingListTable8.setValueAt(null, i, num5);
+            clothingListTable8.setValueAt(null, i, num6);
+         }
+         i = 0;
+         while(i<nsocksArray.size() && nsocksArray.get(i)!=null) {                             // Update table with content in the clothingListArray ArrayList
+               clothingListTable8.setValueAt(nsocksArray.get(i).getStackable(), i, num0);
+               clothingListTable8.setValueAt(nsocksArray.get(i).getPermanent(), i, num1);
+               clothingListTable8.setValueAt(nsocksArray.get(i).getSeason(), i, num2);
+               clothingListTable8.setValueAt(nsocksArray.get(i).getColor(), i, num3);
+               clothingListTable8.setValueAt(nsocksArray.get(i).getOccasion(), i, num4);
+               clothingListTable8.setValueAt(nsocksArray.get(i).getType(), i, num5);
+               clothingListTable8.setValueAt(nsocksArray.get(i).getID(), i, num6);
+               i = i+1;
+               // Update table with content in the clothingListArray ArrayList
+         }
+      
+      }
       
          
-}         
+}
+         
 
 }
