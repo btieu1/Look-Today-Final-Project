@@ -44,6 +44,9 @@ public class TabDemoEXP implements ActionListener{
     private ArrayList<Sock> sockArray = new ArrayList();
     private ArrayList<Shoe> shoeArray = new ArrayList();
     
+    //Create a Warddrobe object 
+    Warddrobe warddrobe = new Warddrobe(hatArray, scarfArray, glassesArray, shirtArray, jacketArray, glovesArray, pantsArray, sockArray, shoeArray);
+    
     //number of clothes that can be added
     private final static int NUM_CLOTHES = 10;
     
