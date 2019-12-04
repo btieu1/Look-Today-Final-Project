@@ -11,16 +11,58 @@ public class Outfit{
    protected Sock socks;
    protected Shoe shoes;
    
-   public Outfit(Hat hat, Scarf scarf, Glasses glasses, Shirt shirt, Jacket jacket, Glove glove, Pants pants, Sock socks, Shoe shoes){
-      this.hat = hat;
-      this.scarf = scarf;
-      this.glasses = glasses;
-      this.shirt = shirt;
-      this.jacket = jacket;
-      this.glove = glove;
-      this.pants = pants;
-      this.socks = socks;
-      this.shoes = shoes;
+   //takes in a varible amount of arguments
+   public Outfit(Clothing ... a){
+      for(int i = 0; i<a.length; i++){
+         if(a[i] instanceof Hat){
+            this.hat = (Hat)a[i];
+         }
+         
+         if(a[i] instanceof Scarf){
+            this.scarf = (Scarf)a[i];
+         }
+
+         if(a[i] instanceof Glasses){
+            this.glasses = (Glasses)a[i];
+         }
+         
+         if(a[i] instanceof Shirt){
+            this.shirt = (Shirt)a[i];
+         }
+         
+         if(a[i] instanceof Jacket){
+            this.jacket = (Jacket)a[i];
+         }
+         
+         if(a[i] instanceof Glove){
+            this.glove = (Glove)a[i];
+         }
+         
+         if(a[i] instanceof Pants){
+            this.pants = (Pants)a[i];
+         }
+         
+         if(a[i] instanceof Sock){
+            this.socks = (Sock)a[i];
+         }
+         
+         if(a[i] instanceof Shoe){
+            this.shoes = (Shoe)a[i];
+         }
+      }
    }
    
+   public String toString(){
+      System.out.println("outfit:");
+      System.out.print(this.hat+", ");
+      System.out.print(this.scarf+", ");
+      System.out.print(this.glasses+", ");
+      System.out.print(this.shirt+", ");
+      System.out.print(this.jacket+", ");
+      System.out.print(this.glove+", ");
+      System.out.print(this.pants+", ");
+      System.out.print(this.socks+", ");
+      System.out.print(this.shoes+", ");
+      return "";
+   }
 }
