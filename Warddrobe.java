@@ -77,6 +77,36 @@ public class Warddrobe{
          this.wardrobe.add(shoes.get(i));
       }
    }
+   //setter methods
+   public void setHats(ArrayList<Hat> h){
+      this.hats = h;
+   }
+   
+   public void setScarfs(ArrayList<Scarf> h){
+      this.scarves = h;
+   }
+   public void setGloves(ArrayList<Glove> h){
+      this.gloves = h;
+   }
+   public void setGlasses(ArrayList<Glasses> h){
+      this.glasses = h;
+   }
+   public void setJackets(ArrayList<Jacket> h){
+      this.jackets = h;
+   }
+   public void setPants(ArrayList<Pants> h){
+      this.pants = h;
+   }
+   public void setShirts(ArrayList<Shirt> h){
+      this.shirts = h;
+   }
+   public void setShoes(ArrayList<Shoe> h){
+      this.shoes = h;
+   }
+   public void setSocks(ArrayList<Sock> h){
+      this.socks = h;
+   }
+   
    
    public ArrayList<Hat> getHatArray(){
       return this.hats;
@@ -922,7 +952,7 @@ public class Warddrobe{
          }
          
          this.outfits = outfits;
-         System.out.println(outfits);
+         //System.out.println(outfits);
       return outfits;
    }
    
