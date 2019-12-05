@@ -157,7 +157,7 @@ public class TabDemoEXP implements ActionListener{
     String[] seasonsArray = {"N/A"};
     JComboBox seasonsBox = new JComboBox(seasonsArray);
     //Box for Colors
-    String[] colorsArray = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green"};
+    String[] colorsArray = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green", "Blue", "Black", "White", "Lime", "Cyan", "Violet", "Turquoise"};
     JComboBox colorsBox = new JComboBox(colorsArray);
     //Box for occasions
     String[] occasionsArray = {"Formal", "Nice", "Casual"};
@@ -192,7 +192,7 @@ public class TabDemoEXP implements ActionListener{
     String[] seasonsArray1 = {"N/A"};
     JComboBox seasonsBox1 = new JComboBox(seasonsArray1);
     //Box for Colors
-    String[] colorsArray1 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green"};
+    String[] colorsArray1 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green", "Blue", "Black", "White", "Lime", "Cyan", "Violet", "Turquoise"};
     JComboBox colorsBox1 = new JComboBox(colorsArray1);
     //Box for occasions
     String[] occasionsArray1 = {"Formal", "Nice", "Casual"};
@@ -232,7 +232,7 @@ public class TabDemoEXP implements ActionListener{
     String[] seasonsArray2 = {"Winter", "Spring", "Summer", "Fall"};
     JComboBox seasonsBox2 = new JComboBox(seasonsArray2);
     //Box for Colors
-    String[] colorsArray2 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green"};
+    String[] colorsArray2 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green", "Blue", "Black", "White", "Lime", "Cyan", "Violet", "Turquoise"};
     JComboBox colorsBox2 = new JComboBox(colorsArray2);
     //Box for occasions
     String[] occasionsArray2 = {"Formal", "Nice", "Casual"};
@@ -269,7 +269,7 @@ public class TabDemoEXP implements ActionListener{
     String[] seasonsArray3 = {"Winter", "Spring", "Summer", "Fall"};
     JComboBox seasonsBox3 = new JComboBox(seasonsArray3);
     //Box for Colors
-    String[] colorsArray3 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green"};
+    String[] colorsArray3 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green", "Blue", "Black", "White", "Lime", "Cyan", "Violet", "Turquoise"};
     JComboBox colorsBox3 = new JComboBox(colorsArray3);
     //Box for occasions
     String[] occasionsArray3 = {"Formal", "Nice", "Casual"};
@@ -306,7 +306,7 @@ public class TabDemoEXP implements ActionListener{
     String[] seasonsArray4 = {"Winter", "Spring", "Summer", "Fall"};
     JComboBox seasonsBox4 = new JComboBox(seasonsArray4);
     //Box for Colors
-    String[] colorsArray4 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green"};
+    String[] colorsArray4 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green", "Blue", "Black", "White", "Lime", "Cyan", "Violet", "Turquoise"};
     JComboBox colorsBox4 = new JComboBox(colorsArray4);
     //Box for occasions
     String[] occasionsArray4 = {"Formal", "Nice", "Casual"};
@@ -343,7 +343,7 @@ public class TabDemoEXP implements ActionListener{
     String[] seasonsArray5 = {"Winter", "Spring", "Summer", "Fall"};
     JComboBox seasonsBox5 = new JComboBox(seasonsArray5);
     //Box for Colors
-    String[] colorsArray5 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green"};
+    String[] colorsArray5 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green", "Blue", "Black", "White", "Lime", "Cyan", "Violet", "Turquoise"};
     JComboBox colorsBox5 = new JComboBox(colorsArray5);
     //Box for occasions
     String[] occasionsArray5 = {"Formal", "Nice", "Casual"};
@@ -379,7 +379,7 @@ public class TabDemoEXP implements ActionListener{
     String[] seasonsArray6 = {"Winter", "Spring", "Summer", "Fall"};
     JComboBox seasonsBox6 = new JComboBox(seasonsArray6);
     //Box for Colors
-    String[] colorsArray6 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green"};
+    String[] colorsArray6 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green", "Blue", "Black", "White", "Lime", "Cyan", "Violet", "Turquoise"};
     JComboBox colorsBox6 = new JComboBox(colorsArray6);
     //Box for occasions
     String[] occasionsArray6 = {"Formal", "Nice", "Casual"};
@@ -416,7 +416,7 @@ public class TabDemoEXP implements ActionListener{
     String[] seasonsArray7 = {"Winter", "Spring", "Summer", "Fall"};
     JComboBox seasonsBox7 = new JComboBox(seasonsArray7);
     //Box for Colors
-    String[] colorsArray7 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green"};
+    String[] colorsArray7 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green", "Blue", "Black", "White", "Lime", "Cyan", "Violet", "Turquoise"};
     JComboBox colorsBox7 = new JComboBox(colorsArray7);
     //Box for occasions
     String[] occasionsArray7 = {"Formal", "Nice", "Casual"};
@@ -453,7 +453,7 @@ public class TabDemoEXP implements ActionListener{
     String[] seasonsArray8 = {"Winter", "Spring", "Summer", "Fall"};
     JComboBox seasonsBox8 = new JComboBox(seasonsArray8);
     //Box for Colors
-    String[] colorsArray8 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green"};
+    String[] colorsArray8 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green", "Blue", "Black", "White", "Lime", "Cyan", "Violet", "Turquoise"};
     JComboBox colorsBox8 = new JComboBox(colorsArray8);
     //Box for occasions
     String[] occasionsArray8 = {"Formal", "Nice", "Casual"};
@@ -1993,42 +1993,42 @@ public class TabDemoEXP implements ActionListener{
         layoutConst5 = new GridBagConstraints();
         layoutConst5.insets = new Insets(10, 10, 1, 0);
         layoutConst5.fill = GridBagConstraints.HORIZONTAL;
-        layoutConst5.gridx = 5;
+        layoutConst5.gridx = 4;
         layoutConst5.gridy = 3;
         shirtsPanel.add(occasionLabel5, layoutConst5);
         
         layoutConst5 = new GridBagConstraints();
         layoutConst5.insets = new Insets(1, 10, 10, 0);
         layoutConst5.fill = GridBagConstraints.HORIZONTAL;
-        layoutConst5.gridx = 5;
+        layoutConst5.gridx = 4;
         layoutConst5.gridy = 4;
         shirtsPanel.add(occasionsBox5, layoutConst5);
              
         layoutConst5 = new GridBagConstraints();
         layoutConst5.insets = new Insets(10, 10, 1, 0);
         layoutConst5.fill = GridBagConstraints.HORIZONTAL;
-        layoutConst5.gridx = 6;
+        layoutConst5.gridx = 5;
         layoutConst5.gridy = 3;
         shirtsPanel.add(typeLabel5, layoutConst5);
         
         layoutConst5 = new GridBagConstraints();
         layoutConst5.insets = new Insets(1, 10, 10, 0);
         layoutConst5.fill = GridBagConstraints.HORIZONTAL;
-        layoutConst5.gridx = 6;
+        layoutConst5.gridx = 5;
         layoutConst5.gridy = 4;
         shirtsPanel.add(typesShirtsBox, layoutConst5);
         
         layoutConst5 = new GridBagConstraints();
         layoutConst5.insets = new Insets(10, 10, 1, 0);
         layoutConst5.fill = GridBagConstraints.HORIZONTAL;
-        layoutConst5.gridx = 7;
+        layoutConst5.gridx = 6;
         layoutConst5.gridy = 3;
         shirtsPanel.add(idLabel5, layoutConst5);
         
         layoutConst5 = new GridBagConstraints();
         layoutConst5.insets = new Insets(1, 10, 10, 0);
         layoutConst5.fill = GridBagConstraints.HORIZONTAL;
-        layoutConst5.gridx = 7;
+        layoutConst5.gridx = 6;
         layoutConst5.gridy = 4;
         shirtsPanel.add(idField5, layoutConst5);
         
@@ -2086,10 +2086,10 @@ public class TabDemoEXP implements ActionListener{
                shirtArray.add(new Shirt(stackabl5, permanen5, seaso5, colo5, occasio5, typ5, ide5));
                
                clothingListTable5.setValueAt(shirtArray.get(cntr5).getStackable(), cntr5, 0);
-               clothingListTable5.setValueAt(shirtArray.get(cntr5).getPermanent(), cntr5, 5);
+               clothingListTable5.setValueAt(shirtArray.get(cntr5).getPermanent(), cntr5, 1);
                clothingListTable5.setValueAt(shirtArray.get(cntr5).getSeason(), cntr5, 2);
-               clothingListTable5.setValueAt(shirtArray.get(cntr5).getColor(), cntr5, 5);
-               clothingListTable5.setValueAt(shirtArray.get(cntr5).getOccasion(), cntr5, 5);
+               clothingListTable5.setValueAt(shirtArray.get(cntr5).getColor(), cntr5, 3);
+               clothingListTable5.setValueAt(shirtArray.get(cntr5).getOccasion(), cntr5, 4);
                clothingListTable5.setValueAt(shirtArray.get(cntr5).getType(), cntr5, 5);
                clothingListTable5.setValueAt(shirtArray.get(cntr5).getID(), cntr5, 6);
                
@@ -2768,6 +2768,126 @@ public class TabDemoEXP implements ActionListener{
         
         JPanel outfitPanel = new JPanel();
         
+        outfitPanel.setLayout(new GridBagLayout());
+        
+        GridBagConstraints layoutConstO = null;                  
+        NumberFormat currencyFormatO = null;
+        
+        JTextArea outfitArea = new JTextArea(10, 15);
+        JScrollPane outfitPane = new JScrollPane(outfitArea);
+        
+        JLabel occLabel = new JLabel("Occasion: ");
+        JLabel seasLabel = new JLabel("Season: ");
+        JLabel colLabel = new JLabel("Color: ");
+        JLabel zipLabel = new JLabel("Zipcode: ");
+        JLabel outfitLabel = new JLabel("Outfits: ");
+        
+        JTextField occField = new JTextField("");
+        occField.setEditable(true);
+        JTextField seasField = new JTextField("");
+        seasField.setEditable(true);
+        JTextField colField = new JTextField("");
+        colField.setEditable(true);
+        JTextField zipField = new JTextField("");
+        zipField.setEditable(true);
+        
+        JButton outfitButton = new JButton("Create Outfit");
+        outfitButton.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent e) {
+               System.out.println(warddrobe.getHatArray().toString());
+               String oc = occField.getText();
+               String se = occField.getText();
+               String co = occField.getText();
+               String zip = occField.getText();
+               
+               Outfit[] outfitsToday = warddrobe.matches(oc, se, co, zip);
+               
+               for(int i = 0;i<outfitsToday.length;i++){
+                  if(!(outfitsToday[i]==null))
+                     outfitArea.append("Outfit 1: "+ outfitsToday[i].toString()+"\n");
+               }
+            }
+         });
+         
+         outfitPanel.setLayout(new GridBagLayout());
+
+         layoutConstO = new GridBagConstraints();
+         layoutConstO.insets = new Insets(10, 10, 5, 1);
+         layoutConstO.anchor = GridBagConstraints.LINE_END;
+         layoutConstO.gridx = 0;
+         layoutConstO.gridy = 0;
+         outfitPanel.add(occLabel, layoutConstO);
+         
+         layoutConstO = new GridBagConstraints();
+         layoutConstO.insets = new Insets(10, 1, 5, 10);
+         layoutConstO.fill = GridBagConstraints.HORIZONTAL;
+         layoutConstO.gridx = 1;
+         layoutConstO.gridy = 0;
+         outfitPanel.add(occField, layoutConstO);
+        
+         layoutConstO = new GridBagConstraints();
+         layoutConstO.insets = new Insets(5, 10, 5, 1);
+         layoutConstO.anchor = GridBagConstraints.LINE_END;
+         layoutConstO.gridx = 0;
+         layoutConstO.gridy = 1;
+         outfitPanel.add(seasLabel, layoutConstO);
+         
+         layoutConstO = new GridBagConstraints();
+         layoutConstO.insets = new Insets(5, 1, 5, 10);
+         layoutConstO.fill = GridBagConstraints.HORIZONTAL;
+         layoutConstO.gridx = 1;
+         layoutConstO.gridy = 1;
+         outfitPanel.add(seasField, layoutConstO);
+         
+         layoutConstO = new GridBagConstraints();
+         layoutConstO.insets = new Insets(5, 10, 10, 1);
+         layoutConstO.anchor = GridBagConstraints.LINE_END;
+         layoutConstO.gridx = 0;
+         layoutConstO.gridy = 2;
+         outfitPanel.add(colLabel, layoutConstO);
+         
+         layoutConstO = new GridBagConstraints();
+         layoutConstO.insets = new Insets(5, 1, 10, 10);
+         layoutConstO.fill = GridBagConstraints.HORIZONTAL;
+         layoutConstO.gridx = 1;
+         layoutConstO.gridy = 2;
+         outfitPanel.add(colField, layoutConstO);
+         
+         layoutConstO = new GridBagConstraints();
+         layoutConstO.insets = new Insets(5, 10, 10, 1);
+         layoutConstO.anchor = GridBagConstraints.LINE_END;
+         layoutConstO.gridx = 0;
+         layoutConstO.gridy = 3;
+         outfitPanel.add(zipLabel, layoutConstO);
+         
+         layoutConstO = new GridBagConstraints();
+         layoutConstO.insets = new Insets(5, 1, 10, 10);
+         layoutConstO.fill = GridBagConstraints.HORIZONTAL;
+         layoutConstO.gridx = 1;
+         layoutConstO.gridy = 3;
+         outfitPanel.add(zipField, layoutConstO);
+         
+         layoutConstO = new GridBagConstraints();
+         layoutConstO.insets = new Insets(0, 5, 0, 10);
+         layoutConstO.fill = GridBagConstraints.BOTH;
+         layoutConstO.gridx = 2;
+         layoutConstO.gridy = 1;
+         outfitPanel.add(outfitButton, layoutConstO);
+         
+         layoutConstO = new GridBagConstraints();
+         layoutConstO.insets = new Insets(10, 10, 1, 10);
+         layoutConstO.fill = GridBagConstraints.HORIZONTAL;
+         layoutConstO.gridx = 0;
+         layoutConstO.gridy = 4;
+         outfitPanel.add(outfitLabel, layoutConstO);
+         
+         layoutConstO = new GridBagConstraints();
+         layoutConstO.insets = new Insets(1, 10, 10, 10);
+         layoutConstO.fill = GridBagConstraints.HORIZONTAL;
+         layoutConstO.gridx = 0;
+         layoutConstO.gridy = 5;
+         outfitPanel.add(outfitPane, layoutConstO);
+         
         // adding of various panels to the tab 
         tabbedPane.addTab(GLASSESPANEL, glassesPanel);
         tabbedPane.addTab(GLOVESPANEL, glovesPanel);
@@ -3497,3 +3617,4 @@ public class TabDemoEXP implements ActionListener{
          
 
 }
+
