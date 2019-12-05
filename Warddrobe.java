@@ -31,8 +31,8 @@ public class Warddrobe{
    
    private Outfit[] outfits;
    
-   protected String temp;
-    protected String condition; 
+   protected String temp = "0";
+    protected String condition = "cloudy"; 
     
    //constructor takes in arraylists
    public Warddrobe(ArrayList<Hat> hats, ArrayList<Scarf> scarves,ArrayList<Glasses> glasses, ArrayList<Shirt> shirts, ArrayList<Jacket> jackets, ArrayList<Glove> gloves, ArrayList<Pants> pants, ArrayList<Sock> socks, ArrayList<Shoe> shoes){
@@ -143,48 +143,48 @@ public class Warddrobe{
    
    public String[] getColorPalette(String primeColor){
       String[] colors = new String[5];
-      if(primeColor.equals("beige")){
-         colors = new String[]{"blue", "brown", "green", "black", "red", "white"};
+      if(primeColor.equals("Beige")){
+         colors = new String[]{"Blue", "Brown", "Green", "Black", "Red", "White", "Beige"};
       }
       
-      if(primeColor.equals("black")){
-         colors = new String[]{"blue", "brown", "green", "black", "red", "white", "yellow", "olive", "beige", "lime", "cyan"};
+      if(primeColor.equals("Black")){
+         colors = new String[]{"Blue", "Brown", "Green", "Black", "Red", "White", "Yellow", "Olive", "Beige", "Lime", "Cyan"};
       }
       
-      if(primeColor.equals("gray")){
-         colors = new String[]{"purple", "red", "violet", "pink", "blue"};
+      if(primeColor.equals("Gray")){
+         colors = new String[]{"Purple", "Red", "Violet", "Pink", "Blue"};
       }
       
-      if(primeColor.equals("pink")){
-         colors = new String[]{"brown", "white", "mint green", "olive", "gray", "turquoise", "light-blue"};
+      if(primeColor.equals("Pink")){
+         colors = new String[]{"Brown", "White", "Olive", "Gray", "Turquoise"};
       }
       
-      if(primeColor.equals("purple")){
-         colors = new String[]{"gray", "yellow-brown", "lime", "mint-green", "brown"};
+      if(primeColor.equals("Purple")){
+         colors = new String[]{"Gray", "Lime", "Brown"};
       }
       
-      if(primeColor.equals("red")){
-         colors = new String[]{"yellow", "white", "fulvous", "green", "blue", "black"};
+      if(primeColor.equals("Red")){
+         colors = new String[]{"Yellow", "White", "Green", "Blue", "Black"};
       }
       
-      if(primeColor.equals("brown")){
-         colors = new String[]{"cyan", "cream", "pink", "fawn", "green", "beige"};
+      if(primeColor.equals("Brown")){
+         colors = new String[]{"Cyan", "Pink", "Green", "Beige"};
       }
       
-      if(primeColor.equals("orange")){
-         colors = new String[]{"cyan", "blue", "lilac", "violet", "white", "black"};
+      if(primeColor.equals("Orange")){
+         colors = new String[]{"Cyan", "Blue", "Violet", "White", "Black"};
       }
       
-      if(primeColor.equals("yellow")){
-         colors = new String[]{"blue", "lilac", "light-cyan", "purple", "gray", "black"};
+      if(primeColor.equals("Yellow")){
+         colors = new String[]{"Blue", "Purple", "Gray", "Black"};
       }
       
-      if(primeColor.equals("olive")){
-         colors = new String[]{"orange", "light-brown", "brown"};
+      if(primeColor.equals("Olive")){
+         colors = new String[]{"Orange", "Brown"};
       }
       
-      if(primeColor.equals("green")){
-         colors = new String[]{"golden-brown", "orange", "salad green", "yellow", "brown", "gray", "cream", "black", "creamy-white"};
+      if(primeColor.equals("Green")){
+         colors = new String[]{"Orange", "Yellow", "Brown", "Gray", "Black"};
       }
       
       return colors;
@@ -213,7 +213,9 @@ public class Warddrobe{
    
    public Outfit[] matches(String occasion, String season, String primeColor, String zip){
       Condense(occasion, season, primeColor);
+      
       Outfit[] outfits = new Outfit[25];
+      
       fetchWeather(zip);
       
       int number = 0; //counts the index of each outfit
@@ -223,10 +225,10 @@ public class Warddrobe{
          int curr = (int)(Math.random() * 12);
          
          //default, no jacket
-            if(curr == 11 && !season.equals("winter") && Double.valueOf(this.temp)>55){
+            if(curr == 11 && !season.equals("Winter") && Double.valueOf(this.temp)>55){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -234,7 +236,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -242,7 +244,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -250,7 +252,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -260,10 +262,10 @@ public class Warddrobe{
                }
                
          //5,6,7
-         if(curr == 10 && season.equals("winter") && Double.valueOf(this.temp)<45){
+         if(curr == 10 && season.equals("Winter") && Double.valueOf(this.temp)<45){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -271,7 +273,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Scarf){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Scarf){
                      list[5] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -279,7 +281,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Glove){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Glove){
                      list[6] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -287,7 +289,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Glasses){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Glasses){
                      list[7] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -295,7 +297,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Jacket){
                      list[1] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -303,7 +305,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -311,7 +313,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -319,7 +321,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -330,10 +332,10 @@ public class Warddrobe{
 
          
          //5,6,7,8
-         if(curr == 9 && season.equals("winter") && Double.valueOf(this.temp)<40){
+         if(curr == 9 && season.equals("Winter") && Double.valueOf(this.temp)<40){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -341,7 +343,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Scarf){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Scarf){
                      list[5] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -349,7 +351,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Glove){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Glove){
                      list[6] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -357,7 +359,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Glasses){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Glasses){
                      list[7] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -365,7 +367,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Hat){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Hat){
                      list[8] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -373,7 +375,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Jacket){
                      list[1] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -381,7 +383,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -389,7 +391,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -397,7 +399,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -408,10 +410,10 @@ public class Warddrobe{
 
          
          //6,7
-         if(curr == 8 && season.equals("winter") && Double.valueOf(this.temp)<45){
+         if(curr == 8 && season.equals("Winter") && Double.valueOf(this.temp)<45){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -419,7 +421,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Glove){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Glove){
                      list[6] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -427,7 +429,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Glasses){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Glasses){
                      list[7] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -435,7 +437,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Jacket){
                      list[1] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -443,7 +445,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -451,7 +453,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -459,7 +461,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -470,10 +472,10 @@ public class Warddrobe{
 
          
          //6,7,8
-         if(curr == 7 && season.equals("winter") && Double.valueOf(this.temp)<45){
+         if(curr == 7 && season.equals("Winter") && Double.valueOf(this.temp)<45){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -481,7 +483,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Glove){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Glove){
                      list[6] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -489,7 +491,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Glasses){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Glasses){
                      list[7] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -497,7 +499,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Hat){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Hat){
                      list[8] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -505,7 +507,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Jacket){
                      list[1] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -513,7 +515,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -521,7 +523,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -529,7 +531,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -543,7 +545,7 @@ public class Warddrobe{
          if(curr == 6){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -551,7 +553,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Glasses){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Glasses){
                      list[7] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -559,7 +561,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Hat){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Hat){
                      list[8] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -567,7 +569,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Jacket){
                      list[1] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -575,7 +577,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -583,7 +585,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -591,7 +593,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -602,10 +604,10 @@ public class Warddrobe{
 
          
          //5,6
-         if(curr == 5 && season.equals("winter") && Double.valueOf(this.temp)<45){
+         if(curr == 5 && season.equals("Winter") && Double.valueOf(this.temp)<45){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -613,7 +615,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Scarf){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Scarf){
                      list[5] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -621,7 +623,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Glove){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Glove){
                      list[6] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -629,7 +631,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Jacket){
                      list[1] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -637,7 +639,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -645,7 +647,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -653,7 +655,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -666,7 +668,7 @@ public class Warddrobe{
          if(curr == 4){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -674,7 +676,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Hat){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Hat){
                      list[8] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -682,7 +684,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Jacket){
                      list[1] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -690,7 +692,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -698,7 +700,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -706,7 +708,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -719,7 +721,7 @@ public class Warddrobe{
          if(curr == 3){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran >= sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -727,7 +729,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Glasses){
+                  if(ran<sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Glasses){
                      list[7] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -735,7 +737,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                  if(ran<sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Jacket){
                      list[1] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -743,7 +745,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -751,7 +753,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if( ran<sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -759,7 +761,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -772,7 +774,7 @@ public class Warddrobe{
             if(curr == 2){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran<sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -780,7 +782,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                  if(ran<sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Jacket){
                      list[1] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -788,7 +790,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -796,7 +798,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if(ran<sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -804,7 +806,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -814,10 +816,10 @@ public class Warddrobe{
                }
                
                //5
-               if(curr == 1 && season.equals("winter")){
+               if(curr == 1 && season.equals("Winter")){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran<sWardrobe.size() && ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -825,7 +827,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Jacket){
                      list[1] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -833,7 +835,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -841,7 +843,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -849,7 +851,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -859,10 +861,10 @@ public class Warddrobe{
                }
                
                //6
-               if(curr == 0 && season.equals("winter") && Double.valueOf(this.temp)<55){
+               if(curr == 0 && season.equals("Winter") && Double.valueOf(this.temp)<55){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shirt){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shirt){
                      list[0] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -870,7 +872,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Jacket){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Jacket){
                      list[1] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -878,7 +880,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Pants){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Pants){
                      list[2] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -886,7 +888,7 @@ public class Warddrobe{
                
                for(int i = 0; i<this.sWardrobe.size(); i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Sock){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Sock){
                      list[3] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -894,7 +896,7 @@ public class Warddrobe{
                
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
-                  if(this.sWardrobe.get(ran) instanceof Shoe){
+                  if(ran<sWardrobe.size() && this.sWardrobe.get(ran) instanceof Shoe){
                      list[4] = this.sWardrobe.get(ran);
                      break;
                   }
@@ -920,6 +922,7 @@ public class Warddrobe{
          }
          
          this.outfits = outfits;
+         System.out.println(outfits);
       return outfits;
    }
    
