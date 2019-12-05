@@ -2751,7 +2751,8 @@ public class TabDemoEXP implements ActionListener{
         tabbedPane.addTab(SHOESPANEL, shoesPanel);
         tabbedPane.addTab(SOCKSPANEL, socksPanel);
         tabbedPane.addTab(OUTFITPANEL, outfitPanel);
- 
+        tabbedPane.addTab("Weather", weatherPanel);
+        
         pane.add(tabbedPane, BorderLayout.CENTER);
     }
     
