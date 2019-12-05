@@ -84,7 +84,7 @@ public class TabDemoEXP implements ActionListener{
     final static int extraWindowWidth = 1500;
     
     //ArrayLists for each type of Clothing - THERE USED TO BE STATIC KEYWORD AFTER PRIVATE
-    private ArrayList<Glasses> glassesArray = new ArrayList();;
+    private ArrayList<Glasses> glassesArray = new ArrayList();
     private ArrayList<Glove> glovesArray = new ArrayList();
     private ArrayList<Hat> hatArray = new ArrayList();
     private ArrayList<Jacket> jacketArray = new ArrayList();
@@ -165,7 +165,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    private JFormattedTextField idField = new JFormattedTextField(20);      
+    private JFormattedTextField idField = new JFormattedTextField("");      
     
     //JLabels for all the attribute names
     private JLabel stackableLabel = new JLabel("Stackable:");                     
@@ -199,7 +199,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox1 = new JComboBox(occasionsArray1);
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    JFormattedTextField idField1 = new JFormattedTextField(20);     
+    JFormattedTextField idField1 = new JFormattedTextField("");     
     
     //JLabels for all the attribute names
     private JLabel stackableLabel1 = new JLabel("Stackable:");                     
@@ -239,7 +239,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox2 = new JComboBox(occasionsArray2);
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    private JFormattedTextField idField2 = new JFormattedTextField(10);      
+    private JFormattedTextField idField2 = new JFormattedTextField("");      
     
     //JLabels for all the attribute names
     private JLabel stackableLabel2 = new JLabel("Stackable:");                     
@@ -276,7 +276,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox3 = new JComboBox(occasionsArray3);
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    private JFormattedTextField idField3 = new JFormattedTextField(10);      
+    private JFormattedTextField idField3 = new JFormattedTextField("");      
    
     //JLabels for all the attribute names
     private JLabel stackableLabel3 = new JLabel("Stackable:");                     
@@ -314,7 +314,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField4 = new JFormattedTextField(10);      
+    private JFormattedTextField idField4 = new JFormattedTextField("");      
     //JLabels for all the attribute names
     private JLabel stackableLabel4 = new JLabel("Stackable:");                     
     private JLabel permanentLabel4 = new JLabel("Permanent:");                   
@@ -350,7 +350,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox5 = new JComboBox(occasionsArray5);
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField5 = new JFormattedTextField(10);      
+    private JFormattedTextField idField5 = new JFormattedTextField("");      
     //JLabels for all the attribute names
     private JLabel stackableLabel5 = new JLabel("Stackable:");                     
     private JLabel permanentLabel5 = new JLabel("Permanent:");                   
@@ -387,7 +387,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField6 = new JFormattedTextField(10);      
+    private JFormattedTextField idField6 = new JFormattedTextField("");      
     //JLabels for all the attribute names
     private JLabel stackableLabel6 = new JLabel("Stackable:");                     
     private JLabel permanentLabel6 = new JLabel("Permanent:");                   
@@ -424,7 +424,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField7 = new JFormattedTextField(10);      
+    private JFormattedTextField idField7 = new JFormattedTextField("");      
     //JLabels for all the attribute names
     private JLabel stackableLabel7 = new JLabel("Stackable:");                     
     private JLabel permanentLabel7 = new JLabel("Permanent:");                   
@@ -461,7 +461,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField8 = new JFormattedTextField(10);      
+    private JFormattedTextField idField8 = new JFormattedTextField("");      
     //JLabels for all the attribute names
     private JLabel stackableLabel8 = new JLabel("Stackable:");                     
     private JLabel permanentLabel8 = new JLabel("Permanent:");                   
@@ -682,60 +682,88 @@ public class TabDemoEXP implements ActionListener{
       }
    
    }
+
     //THE ACTUAL PANE THAT IMPLEMENTS EVERYTHING
     public void addComponentToPane(Container pane) {
         JTabbedPane tabbedPane = new JTabbedPane(); // creating the tab pane
         
         //**************WEATHER PANEL!!!!!!
         //**********************************
+        //output of temperature and condition
+         JTextArea outputArea = new JTextArea(10, 15);
+         outputArea.setEditable(false);
+         
+         JLabel outputLabel = new JLabel("Weather");
+         
+         JScrollPane scrollPane = new JScrollPane(outputArea);
         JLabel weatherLabel = new JLabel("Weather");
         
-        JLabel changeZipLabel = new JLabel("Change Zipcode: ");
+        JLabel changeZipLabel = new JLabel("Enter Zipcode: ");
         
-        JTextField changeZipField = new JTextField("");
+        JTextField changeZipField = new JTextField("    ");
         changeZipField.setEditable(true);
         
-        JButton changeZipButton = new JButton("Change");
+        JButton changeZipButton = new JButton("Find Weather");
         changeZipButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
+               
               zipcode = changeZipField.getText();
+              fetchWeather(zipcode);
+              System.out.println(temp+" "+condition);
+              outputArea.append("Temperature: "+ temp +"\n"+"Condition: "+condition+"\n");
+             
             }
          });
+         
+         //fetchWeather(zipcode);
         
         JPanel weatherPanel = new JPanel();
         
         weatherPanel.setLayout(new GridBagLayout());
         
         GridBagConstraints layoutConstW = null;                  
-        NumberFormat currencyFormatW = null;
+        NumberFormat currencyFormatW = null;       
+        
         
         layoutConstW = new GridBagConstraints();
-        layoutConstW.insets = new Insets(0, 10, 10, 5);
-        layoutConstW.fill = GridBagConstraints.HORIZONTAL;
+        layoutConstW.insets = new Insets(10, 10, 5, 1);
+        layoutConstW.fill = GridBagConstraints.LINE_END;
         layoutConstW.gridx = 0;
-        layoutConstW.gridy = 4;
-        weatherPanel.add(weatherLabel, layoutConstW);
-        
-        layoutConstW = new GridBagConstraints();
-        layoutConstW.insets = new Insets(0, 10, 10, 5);
-        layoutConstW.fill = GridBagConstraints.HORIZONTAL;
-        layoutConstW.gridx = 0;
-        layoutConstW.gridy = 5;
+        layoutConstW.gridy = 0;
         weatherPanel.add(changeZipLabel, layoutConstW);
         
         layoutConstW = new GridBagConstraints();
-        layoutConstW.insets = new Insets(1, 10, 10, 0);
+        layoutConstW.insets = new Insets(10, 1, 5, 10);
         layoutConstW.fill = GridBagConstraints.HORIZONTAL;
         layoutConstW.gridx = 1;
-        layoutConstW.gridy = 5;
+        layoutConstW.gridy = 0;
         weatherPanel.add(changeZipField, layoutConstW);
         
         layoutConstW = new GridBagConstraints();
-        layoutConstW.insets = new Insets(0, 10, 10, 5);
-        layoutConstW.fill = GridBagConstraints.HORIZONTAL;
-        layoutConstW.gridx = 3;
-        layoutConstW.gridy = 5;
+        layoutConstW.insets = new Insets(0, 5, 0, 10);
+        layoutConstW.fill = GridBagConstraints.BOTH;
+        layoutConstW.gridx = 2;
+        layoutConstW.gridy = 0;
         weatherPanel.add(changeZipButton, layoutConstW);
+        
+         
+         
+         
+         layoutConstW = new GridBagConstraints();
+         layoutConstW.insets = new Insets(10, 10, 1, 10);
+         layoutConstW.fill = GridBagConstraints.HORIZONTAL;
+         layoutConstW.gridx = 0;
+         layoutConstW.gridy = 3;
+         weatherPanel.add(outputLabel, layoutConstW);
+         
+         layoutConstW = new GridBagConstraints();
+         layoutConstW.insets = new Insets(1, 10, 10, 10);
+         layoutConstW.fill = GridBagConstraints.HORIZONTAL;
+         layoutConstW.gridx = 0;
+         layoutConstW.gridy = 4;
+         weatherPanel.add(scrollPane, layoutConstW);
+        
+
         
         // ***GLASSES Panel***
          
