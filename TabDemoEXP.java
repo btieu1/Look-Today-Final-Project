@@ -63,6 +63,8 @@ public class TabDemoEXP implements ActionListener{
     }
     ////////////////////////////////////////////////////////////////////////
     
+    //WEATHER VARIABLE
+    private String zipcode;
     
     // panel names for each clothing type - these names correspond to the tab names
     final static String GLASSESPANEL = "Glasses";
@@ -683,6 +685,57 @@ public class TabDemoEXP implements ActionListener{
     //THE ACTUAL PANE THAT IMPLEMENTS EVERYTHING
     public void addComponentToPane(Container pane) {
         JTabbedPane tabbedPane = new JTabbedPane(); // creating the tab pane
+        
+        //**************WEATHER PANEL!!!!!!
+        //**********************************
+        JLabel weatherLabel = new JLabel("Weather");
+        
+        JLabel changeZipLabel = new JLabel("Change Zipcode: ");
+        
+        JTextField changeZipField = new JTextField("");
+        changeZipField.setEditable(true);
+        
+        JButton changeZipButton = new JButton("Change");
+        changeZipButton.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent e) {
+              zipcode = changeZipField.getText();
+            }
+         });
+        
+        JPanel weatherPanel = new JPanel();
+        
+        weatherPanel.setLayout(new GridBagLayout());
+        
+        GridBagConstraints layoutConstW = null;                  
+        NumberFormat currencyFormatW = null;
+        
+        layoutConstW = new GridBagConstraints();
+        layoutConstW.insets = new Insets(0, 10, 10, 5);
+        layoutConstW.fill = GridBagConstraints.HORIZONTAL;
+        layoutConstW.gridx = 0;
+        layoutConstW.gridy = 4;
+        weatherPanel.add(weatherLabel, layoutConstW);
+        
+        layoutConstW = new GridBagConstraints();
+        layoutConstW.insets = new Insets(0, 10, 10, 5);
+        layoutConstW.fill = GridBagConstraints.HORIZONTAL;
+        layoutConstW.gridx = 0;
+        layoutConstW.gridy = 5;
+        weatherPanel.add(changeZipLabel, layoutConstW);
+        
+        layoutConstW = new GridBagConstraints();
+        layoutConstW.insets = new Insets(1, 10, 10, 0);
+        layoutConstW.fill = GridBagConstraints.HORIZONTAL;
+        layoutConstW.gridx = 1;
+        layoutConstW.gridy = 5;
+        weatherPanel.add(changeZipField, layoutConstW);
+        
+        layoutConstW = new GridBagConstraints();
+        layoutConstW.insets = new Insets(0, 10, 10, 5);
+        layoutConstW.fill = GridBagConstraints.HORIZONTAL;
+        layoutConstW.gridx = 3;
+        layoutConstW.gridy = 5;
+        weatherPanel.add(changeZipButton, layoutConstW);
         
         // ***GLASSES Panel***
          
