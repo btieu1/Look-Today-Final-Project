@@ -956,12 +956,14 @@ public class Warddrobe{
       return outfits;
    }
    
-   public void printOutfits(){
+   public String printOutfits(){
+      String sum = "";
       for(int i = 0; i<this.outfits.length; i++){
          if(this.outfits[i] != null){
-            System.out.println(this.outfits[i]);
+            sum += this.outfits[i];
             }
          }
+         return sum;
    }
    
    public String toString(){
@@ -977,5 +979,12 @@ public class Warddrobe{
          }
          
       return "";
+   }
+   
+   public String getOutfit(int i){
+      String sum = "";
+      if(outfits.length>i)
+         sum = outfits[i].toString();
+      return sum;
    }
 }
