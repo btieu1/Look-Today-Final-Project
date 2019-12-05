@@ -120,7 +120,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    private JFormattedTextField idField = new JFormattedTextField(20);      
+    private JFormattedTextField idField = new JFormattedTextField("");      
     
     //JLabels for all the attribute names
     private JLabel stackableLabel = new JLabel("Stackable:");                     
@@ -154,7 +154,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox1 = new JComboBox(occasionsArray1);
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    JFormattedTextField idField1 = new JFormattedTextField(20);     
+    JFormattedTextField idField1 = new JFormattedTextField("");     
     
     //JLabels for all the attribute names
     private JLabel stackableLabel1 = new JLabel("Stackable:");                     
@@ -194,7 +194,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox2 = new JComboBox(occasionsArray2);
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    private JFormattedTextField idField2 = new JFormattedTextField(10);      
+    private JFormattedTextField idField2 = new JFormattedTextField("");      
     
     //JLabels for all the attribute names
     private JLabel stackableLabel2 = new JLabel("Stackable:");                     
@@ -231,7 +231,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox3 = new JComboBox(occasionsArray3);
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    private JFormattedTextField idField3 = new JFormattedTextField(10);      
+    private JFormattedTextField idField3 = new JFormattedTextField("");      
    
     //JLabels for all the attribute names
     private JLabel stackableLabel3 = new JLabel("Stackable:");                     
@@ -269,7 +269,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField4 = new JFormattedTextField(10);      
+    private JFormattedTextField idField4 = new JFormattedTextField("");      
     //JLabels for all the attribute names
     private JLabel stackableLabel4 = new JLabel("Stackable:");                     
     private JLabel permanentLabel4 = new JLabel("Permanent:");                   
@@ -305,7 +305,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox5 = new JComboBox(occasionsArray5);
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField5 = new JFormattedTextField(10);      
+    private JFormattedTextField idField5 = new JFormattedTextField("");      
     //JLabels for all the attribute names
     private JLabel stackableLabel5 = new JLabel("Stackable:");                     
     private JLabel permanentLabel5 = new JLabel("Permanent:");                   
@@ -342,7 +342,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField6 = new JFormattedTextField(10);      
+    private JFormattedTextField idField6 = new JFormattedTextField("");      
     //JLabels for all the attribute names
     private JLabel stackableLabel6 = new JLabel("Stackable:");                     
     private JLabel permanentLabel6 = new JLabel("Permanent:");                   
@@ -379,7 +379,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField7 = new JFormattedTextField(10);      
+    private JFormattedTextField idField7 = new JFormattedTextField("");      
     //JLabels for all the attribute names
     private JLabel stackableLabel7 = new JLabel("Stackable:");                     
     private JLabel permanentLabel7 = new JLabel("Permanent:");                   
@@ -416,7 +416,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField8 = new JFormattedTextField(10);      
+    private JFormattedTextField idField8 = new JFormattedTextField("");      
     //JLabels for all the attribute names
     private JLabel stackableLabel8 = new JLabel("Stackable:");                     
     private JLabel permanentLabel8 = new JLabel("Permanent:");                   
