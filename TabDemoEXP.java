@@ -14,6 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
 
 public class TabDemoEXP implements ActionListener{
     // panel names for each clothing type - these names correspond to the tab names
@@ -46,7 +51,7 @@ public class TabDemoEXP implements ActionListener{
     
     //Create a Warddrobe object 
     Warddrobe warddrobe = new Warddrobe(hatArray, scarfArray, glassesArray, shirtArray, jacketArray, glovesArray, pantsArray, sockArray, shoeArray);
-    
+        
     //number of clothes that can be added
     private final static int NUM_CLOTHES = 10;
     
@@ -187,7 +192,6 @@ public class TabDemoEXP implements ActionListener{
     //Box for occasions
     String[] occasionsArray2 = {"Formal", "Nice", "Casual"};
     JComboBox occasionsBox2 = new JComboBox(occasionsArray2);
-    
     
     //TextField names for all the various attributes that will be needed for Clothing types
     private JFormattedTextField idField2 = new JFormattedTextField(10);      
@@ -426,6 +430,213 @@ public class TabDemoEXP implements ActionListener{
     //JTabel tjacket will display all the clothes 
     private JTable clothingListTable8;
     
+    //**********************************************THIS IS A METHOD AND GOES WITH ALL THE OTHER FILE READERS 
+    //GLASSES FILE READER METHOD THIS IS WHERE I READ INTO A FILE ALL OF THE  HAT ARRAY TO SAVE THE DATA 
+    //************************************************
+    public void generateGlassesFile(){
+      try{
+      PrintWriter writer = new PrintWriter("glassesFile.txt", "UTF-8");
+      
+      ArrayList<Glasses> hg = warddrobe.getGlassesArray();
+      for(int z = 0; z<hg.size();z++){
+         writer.println(hg.get(z).getStackable());
+         writer.println(hg.get(z).getPermanent());
+         writer.println(hg.get(z).getSeason());
+         writer.println(hg.get(z).getColor());
+         writer.println(hg.get(z).getOccasion());
+         writer.println(hg.get(z).getType());
+         writer.println(hg.get(z).getID());
+      }
+      writer.close();
+      } catch(IOException e){
+        e.printStackTrace();
+      }
+   
+   }
+   //**********************************************THIS IS A METHOD AND GOES WITH ALL THE OTHER FILE READERS 
+    //GLOVES FILE READER METHOD THIS IS WHERE I READ INTO A FILE ALL OF THE  HAT ARRAY TO SAVE THE DATA 
+    //************************************************
+    public void generateGlovesFile(){
+      try{
+      PrintWriter writer = new PrintWriter("glovesFile.txt", "UTF-8");
+      
+      ArrayList<Glove> hgl = warddrobe.getGlovesArray();
+      for(int z = 0; z<hgl.size();z++){
+         writer.println(hgl.get(z).getStackable());
+         writer.println(hgl.get(z).getPermanent());
+         writer.println(hgl.get(z).getSeason());
+         writer.println(hgl.get(z).getColor());
+         writer.println(hgl.get(z).getOccasion());
+         writer.println(hgl.get(z).getType());
+         writer.println(hgl.get(z).getID());
+      }
+      writer.close();
+      } catch(IOException e){
+        e.printStackTrace();
+      }
+   
+   }
+    //**********************************************
+    //HAT FILE READER METHOD THIS IS WHERE I READ INTO A FILE ALL OF THE  HAT ARRAY TO SAVE THE DATA 
+    //************************************************
+    public void generateHatFile(){
+      try{
+      PrintWriter writer = new PrintWriter("hatFile.txt", "UTF-8");
+      
+      ArrayList<Hat> h = warddrobe.getHatArray();
+      for(int z = 0; z<h.size();z++){
+         writer.println(h.get(z).getStackable());
+         writer.println(h.get(z).getPermanent());
+         writer.println(h.get(z).getSeason());
+         writer.println(h.get(z).getColor());
+         writer.println(h.get(z).getOccasion());
+         writer.println(h.get(z).getType());
+         writer.println(h.get(z).getID());
+      }
+      writer.close();
+      } catch(IOException e){
+        e.printStackTrace();
+      }
+   
+   }
+    //**********************************************THIS IS A METHOD AND GOES WITH ALL THE OTHER FILE READERS 
+    //Jacket FILE READER METHOD THIS IS WHERE I READ INTO A FILE ALL OF THE  HAT ARRAY TO SAVE THE DATA 
+    //************************************************
+    public void generateJacketsFile(){
+      try{
+      PrintWriter writer = new PrintWriter("jacketsFile.txt", "UTF-8");
+      
+      ArrayList<Jacket> hglj = warddrobe.getJacketArray();
+      for(int z = 0; z<hglj.size();z++){
+         writer.println(hglj.get(z).getStackable());
+         writer.println(hglj.get(z).getPermanent());
+         writer.println(hglj.get(z).getSeason());
+         writer.println(hglj.get(z).getColor());
+         writer.println(hglj.get(z).getOccasion());
+         writer.println(hglj.get(z).getType());
+         writer.println(hglj.get(z).getID());
+      }
+      writer.close();
+      } catch(IOException e){
+        e.printStackTrace();
+      }
+   
+   }
+   //**********************************************THIS IS A METHOD AND GOES WITH ALL THE OTHER FILE READERS 
+    //SCARVES FILE READER METHOD THIS IS WHERE I READ INTO A FILE ALL OF THE  HAT ARRAY TO SAVE THE DATA 
+    //************************************************
+    public void generateScarfsFile(){
+      try{
+      PrintWriter writer = new PrintWriter("scarfsFile.txt", "UTF-8");
+      
+      ArrayList<Scarf> hgljs = warddrobe.getScarfArray();
+      for(int z = 0; z<hgljs.size();z++){
+         writer.println(hgljs.get(z).getStackable());
+         writer.println(hgljs.get(z).getPermanent());
+         writer.println(hgljs.get(z).getSeason());
+         writer.println(hgljs.get(z).getColor());
+         writer.println(hgljs.get(z).getOccasion());
+         writer.println(hgljs.get(z).getType());
+         writer.println(hgljs.get(z).getID());
+      }
+      writer.close();
+      } catch(IOException e){
+        e.printStackTrace();
+      }
+   
+   }
+   //**********************************************THIS IS A METHOD AND GOES WITH ALL THE OTHER FILE READERS 
+    //SHIRTS FILE READER METHOD THIS IS WHERE I READ INTO A FILE ALL OF THE  HAT ARRAY TO SAVE THE DATA 
+    //************************************************
+    public void generateShirtsFile(){
+      try{
+      PrintWriter writer = new PrintWriter("shirtsFile.txt", "UTF-8");
+      
+      ArrayList<Shirt> hgljss = warddrobe.getShirtArray();
+      for(int z = 0; z<hgljss.size();z++){
+         writer.println(hgljss.get(z).getStackable());
+         writer.println(hgljss.get(z).getPermanent());
+         writer.println(hgljss.get(z).getSeason());
+         writer.println(hgljss.get(z).getColor());
+         writer.println(hgljss.get(z).getOccasion());
+         writer.println(hgljss.get(z).getType());
+         writer.println(hgljss.get(z).getID());
+      }
+      writer.close();
+      } catch(IOException e){
+        e.printStackTrace();
+      }
+   
+   }
+   //**********************************************THIS IS A METHOD AND GOES WITH ALL THE OTHER FILE READERS 
+    //PANTS FILE READER METHOD THIS IS WHERE I READ INTO A FILE ALL OF THE  HAT ARRAY TO SAVE THE DATA 
+    //************************************************
+    public void generatePantsFile(){
+      try{
+      PrintWriter writer = new PrintWriter("pantssFile.txt", "UTF-8");
+      
+      ArrayList<Pants> hgljssp = warddrobe.getPantsArray();
+      for(int z = 0; z<hgljssp.size();z++){
+         writer.println(hgljssp.get(z).getStackable());
+         writer.println(hgljssp.get(z).getPermanent());
+         writer.println(hgljssp.get(z).getSeason());
+         writer.println(hgljssp.get(z).getColor());
+         writer.println(hgljssp.get(z).getOccasion());
+         writer.println(hgljssp.get(z).getType());
+         writer.println(hgljssp.get(z).getID());
+      }
+      writer.close();
+      } catch(IOException e){
+        e.printStackTrace();
+      }
+   
+   }
+   //**********************************************THIS IS A METHOD AND GOES WITH ALL THE OTHER FILE READERS 
+    //SHOES FILE READER METHOD THIS IS WHERE I READ INTO A FILE ALL OF THE  HAT ARRAY TO SAVE THE DATA 
+    //************************************************
+    public void generateShoesFile(){
+      try{
+      PrintWriter writer = new PrintWriter("shoesFile.txt", "UTF-8");
+      
+      ArrayList<Shoe> hgljssps = warddrobe.getShoesArray();
+      for(int z = 0; z<hgljssps.size();z++){
+         writer.println(hgljssps.get(z).getStackable());
+         writer.println(hgljssps.get(z).getPermanent());
+         writer.println(hgljssps.get(z).getSeason());
+         writer.println(hgljssps.get(z).getColor());
+         writer.println(hgljssps.get(z).getOccasion());
+         writer.println(hgljssps.get(z).getType());
+         writer.println(hgljssps.get(z).getID());
+      }
+      writer.close();
+      } catch(IOException e){
+        e.printStackTrace();
+      }
+   
+   }
+   //**********************************************THIS IS A METHOD AND GOES WITH ALL THE OTHER FILE READERS 
+    //SOCKS FILE READER METHOD THIS IS WHERE I READ INTO A FILE ALL OF THE  HAT ARRAY TO SAVE THE DATA 
+    //************************************************
+    public void generateSocksFile(){
+      try{
+      PrintWriter writer = new PrintWriter("socksFile.txt", "UTF-8");
+      
+      ArrayList<Sock> hgljsspss = warddrobe.getSocksArray();
+      for(int z = 0; z<hgljsspss.size();z++){
+         writer.println(hgljsspss.get(z).getStackable());
+         writer.println(hgljsspss.get(z).getPermanent());
+         writer.println(hgljsspss.get(z).getSeason());
+         writer.println(hgljsspss.get(z).getColor());
+         writer.println(hgljsspss.get(z).getOccasion());
+         writer.println(hgljsspss.get(z).getType());
+         writer.println(hgljsspss.get(z).getID());
+      }
+      writer.close();
+      } catch(IOException e){
+        e.printStackTrace();
+      }
+   
+   }
     //THE ACTUAL PANE THAT IMPLEMENTS EVERYTHING
     public void addComponentToPane(Container pane) {
         JTabbedPane tabbedPane = new JTabbedPane(); // creating the tab pane
@@ -612,6 +823,44 @@ public class TabDemoEXP implements ActionListener{
         layoutConst.gridx = 1;
         layoutConst.gridy = 5;
         glassesPanel.add(removeGlassesField, layoutConst);
+        
+        //***************************************PUT AT END OF EACH PANEL
+        //INSTANTIATING THE GLASSES ARRAY USING THE FILE ALREADY CREATED
+         try {
+            File file = new File("glassesFile.txt");
+            Scanner scan = new Scanner(file);
+            
+            String stackabl = " ";
+            String permanen = " ";
+            String seaso = " ";
+            String colo = " ";
+            String occasio = " ";
+            String typ = " ";
+            String ide = " ";
+            int cntr = 0;
+            while(scan.hasNext() && cntr<10){
+               stackabl = scan.nextLine();
+               permanen = scan.nextLine();
+               seaso = scan.nextLine();
+               colo = scan.nextLine();
+               occasio = scan.nextLine();
+               typ = scan.nextLine();
+               ide = scan.nextLine();
+               glassesArray.add(new Glasses(stackabl, permanen, seaso, colo, occasio, typ, ide));
+               
+               clothingListTable.setValueAt(glassesArray.get(cntr).getStackable(), cntr, 0);
+               clothingListTable.setValueAt(glassesArray.get(cntr).getPermanent(), cntr, 1);
+               clothingListTable.setValueAt(glassesArray.get(cntr).getSeason(), cntr, 2);
+               clothingListTable.setValueAt(glassesArray.get(cntr).getColor(), cntr, 3);
+               clothingListTable.setValueAt(glassesArray.get(cntr).getOccasion(), cntr, 4);
+               clothingListTable.setValueAt(glassesArray.get(cntr).getType(), cntr, 5);
+               clothingListTable.setValueAt(glassesArray.get(cntr).getID(), cntr, 6);
+               
+               cntr = cntr + 1;
+            }
+         } catch (IOException d) {
+      d.printStackTrace();
+      }
         // ***GLOVES Panel*** 
         
         //VARIABLE DEFINTIONS
@@ -799,6 +1048,44 @@ public class TabDemoEXP implements ActionListener{
         layoutConst.gridx = 1;
         layoutConst.gridy = 5;
         glovesPanel.add(removeGlovesField, layoutConst);
+        
+        //***************************************PUT AT END OF EACH PANEL
+        //INSTANTIATING THE HATS ARRAY USING THE FILE ALREADY CREATED
+         try {
+            File file = new File("glovesFile.txt");
+            Scanner scan1 = new Scanner(file);
+            
+            String stackabl1 = " ";
+            String permanen1 = " ";
+            String seaso1 = " ";
+            String colo1 = " ";
+            String occasio1 = " ";
+            String typ1 = " ";
+            String ide1 = " ";
+            int cntr1 = 0;
+            while(scan1.hasNext() && cntr1<10){
+               stackabl1 = scan1.nextLine();
+               permanen1 = scan1.nextLine();
+               seaso1 = scan1.nextLine();
+               colo1 = scan1.nextLine();
+               occasio1 = scan1.nextLine();
+               typ1 = scan1.nextLine();
+               ide1 = scan1.nextLine();
+               glovesArray.add(new Glove(stackabl1, permanen1, seaso1, colo1, occasio1, typ1, ide1));
+               
+               clothingListTable1.setValueAt(glovesArray.get(cntr1).getStackable(), cntr1, 0);
+               clothingListTable1.setValueAt(glovesArray.get(cntr1).getPermanent(), cntr1, 1);
+               clothingListTable1.setValueAt(glovesArray.get(cntr1).getSeason(), cntr1, 2);
+               clothingListTable1.setValueAt(glovesArray.get(cntr1).getColor(), cntr1, 3);
+               clothingListTable1.setValueAt(glovesArray.get(cntr1).getOccasion(), cntr1, 4);
+               clothingListTable1.setValueAt(glovesArray.get(cntr1).getType(), cntr1, 5);
+               clothingListTable1.setValueAt(glovesArray.get(cntr1).getID(), cntr1, 6);
+               
+               cntr1 = cntr1 + 1;
+            }
+         } catch (IOException d) {
+      d.printStackTrace();
+      }
         // ***HAT Panel***
         
         JPanel hatsPanel = new JPanel();
@@ -818,6 +1105,9 @@ public class TabDemoEXP implements ActionListener{
         removeHatsField.setEditable(true);
         
         idField2.setEditable(true);
+        
+      
+        
         //initialize table
         Object[][] tableVals2 = new Object[10][7];
         String[] columnHeadings2 = {"Stackable", "Permanent", "Season", "Color", "Occasion", "Type", "ID"};
@@ -979,6 +1269,45 @@ public class TabDemoEXP implements ActionListener{
         layoutConst.gridx = 1;
         layoutConst.gridy = 5;
         hatsPanel.add(removeHatsField, layoutConst);
+        
+        
+        //***************************************
+        //INSTANTIATING THE HATS ARRAY USING THE FILE ALREADY CREATED
+         try {
+            File file2 = new File("hatFile.txt");
+            Scanner scan2 = new Scanner(file2);
+            
+            String stackabl2 = " ";
+            String permanen2 = " ";
+            String seaso2 = " ";
+            String colo2 = " ";
+            String occasio2 = " ";
+            String typ2 = " ";
+            String ide2 = " ";
+            int cntr2 = 0;
+            while(scan2.hasNext() && cntr2<10){
+               stackabl2 = scan2.nextLine();
+               permanen2 = scan2.nextLine();
+               seaso2 = scan2.nextLine();
+               colo2 = scan2.nextLine();
+               occasio2 = scan2.nextLine();
+               typ2 = scan2.nextLine();
+               ide2 = scan2.nextLine();
+               hatArray.add(new Hat(stackabl2, permanen2, seaso2, colo2, occasio2, typ2, ide2));
+               
+               clothingListTable2.setValueAt(hatArray.get(cntr2).getStackable(), cntr2, 0);
+               clothingListTable2.setValueAt(hatArray.get(cntr2).getPermanent(), cntr2, 1);
+               clothingListTable2.setValueAt(hatArray.get(cntr2).getSeason(), cntr2, 2);
+               clothingListTable2.setValueAt(hatArray.get(cntr2).getColor(), cntr2, 3);
+               clothingListTable2.setValueAt(hatArray.get(cntr2).getOccasion(), cntr2, 4);
+               clothingListTable2.setValueAt(hatArray.get(cntr2).getType(), cntr2, 5);
+               clothingListTable2.setValueAt(hatArray.get(cntr2).getID(), cntr2, 6);
+               
+               cntr2 = cntr2 + 1;
+            }
+         } catch (IOException d) {
+      d.printStackTrace();
+      }
         
         // ***JACKET Panel***
         
@@ -1164,6 +1493,44 @@ public class TabDemoEXP implements ActionListener{
         layoutConst.gridx = 1;
         layoutConst.gridy = 5;
         jacketsPanel.add(removeJacketsField, layoutConst);
+        //***************************************PUT AT END OF EACH PANEL
+        //INSTANTIATING THE HATS ARRAY USING THE FILE ALREADY CREATED
+         try {
+            File file = new File("jacketsFile.txt");
+            Scanner scan3 = new Scanner(file);
+            
+            String stackabl3 = " ";
+            String permanen3 = " ";
+            String seaso3 = " ";
+            String colo3 = " ";
+            String occasio3 = " ";
+            String typ3 = " ";
+            String ide3 = " ";
+            int cntr3 = 0;
+            while(scan3.hasNext() && cntr3<10){
+               stackabl3 = scan3.nextLine();
+               permanen3 = scan3.nextLine();
+               seaso3 = scan3.nextLine();
+               colo3 = scan3.nextLine();
+               occasio3 = scan3.nextLine();
+               typ3 = scan3.nextLine();
+               ide3 = scan3.nextLine();
+               jacketArray.add(new Jacket(stackabl3, permanen3, seaso3, colo3, occasio3, typ3, ide3));
+               
+               clothingListTable3.setValueAt(jacketArray.get(cntr3).getStackable(), cntr3, 0);
+               clothingListTable3.setValueAt(jacketArray.get(cntr3).getPermanent(), cntr3, 1);
+               clothingListTable3.setValueAt(jacketArray.get(cntr3).getSeason(), cntr3, 2);
+               clothingListTable3.setValueAt(jacketArray.get(cntr3).getColor(), cntr3, 3);
+               clothingListTable3.setValueAt(jacketArray.get(cntr3).getOccasion(), cntr3, 4);
+               clothingListTable3.setValueAt(jacketArray.get(cntr3).getType(), cntr3, 5);
+               clothingListTable3.setValueAt(jacketArray.get(cntr3).getID(), cntr3, 6);
+               
+               cntr3 = cntr3 + 1;
+            }
+         } catch (IOException d) {
+      d.printStackTrace();
+      }
+
         // SCARVES Panel
         
         
@@ -1348,6 +1715,43 @@ public class TabDemoEXP implements ActionListener{
         layoutConst.gridy = 5;
         scarfsPanel.add(removeScarfsField, layoutConst);
         
+        //***************************************PUT AT END OF EACH PANEL
+        //INSTANTIATING THE HATS ARRAY USING THE FILE ALREADY CREATED
+         try {
+            File file = new File("scarfsFile.txt");
+            Scanner scan4 = new Scanner(file);
+            
+            String stackabl4 = " ";
+            String permanen4 = " ";
+            String seaso4 = " ";
+            String colo4 = " ";
+            String occasio4 = " ";
+            String typ4 = " ";
+            String ide4 = " ";
+            int cntr4 = 0;
+            while(scan4.hasNext() && cntr4<10){
+               stackabl4 = scan4.nextLine();
+               permanen4 = scan4.nextLine();
+               seaso4 = scan4.nextLine();
+               colo4 = scan4.nextLine();
+               occasio4 = scan4.nextLine();
+               typ4 = scan4.nextLine();
+               ide4 = scan4.nextLine();
+               scarfArray.add(new Scarf(stackabl4, permanen4, seaso4, colo4, occasio4, typ4, ide4));
+               
+               clothingListTable4.setValueAt(scarfArray.get(cntr4).getStackable(), cntr4, 0);
+               clothingListTable4.setValueAt(scarfArray.get(cntr4).getPermanent(), cntr4, 1);
+               clothingListTable4.setValueAt(scarfArray.get(cntr4).getSeason(), cntr4, 2);
+               clothingListTable4.setValueAt(scarfArray.get(cntr4).getColor(), cntr4, 3);
+               clothingListTable4.setValueAt(scarfArray.get(cntr4).getOccasion(), cntr4, 4);
+               clothingListTable4.setValueAt(scarfArray.get(cntr4).getType(), cntr4, 5);
+               clothingListTable4.setValueAt(scarfArray.get(cntr4).getID(), cntr4, 6);
+               
+               cntr4 = cntr4 + 1;
+            }
+         } catch (IOException d) {
+      d.printStackTrace();
+      }
         // SHIRTS Panel
         
         //VARIABLE DEFINITIONS
@@ -1533,6 +1937,43 @@ public class TabDemoEXP implements ActionListener{
         layoutConst.gridy = 5;
         shirtsPanel.add(removeShirtsField, layoutConst);
         
+        //***************************************PUT AT END OF EACH PANEL
+        //INSTANTIATING THE SHIRTS ARRAY USING THE FILE ALREADY CREATED
+         try {
+            File file = new File("shirtsFile.txt");
+            Scanner scan5 = new Scanner(file);
+            
+            String stackabl5 = " ";
+            String permanen5 = " ";
+            String seaso5 = " ";
+            String colo5 = " ";
+            String occasio5 = " ";
+            String typ5 = " ";
+            String ide5 = " ";
+            int cntr5 = 0;
+            while(scan5.hasNext() && cntr5<10){
+               stackabl5 = scan5.nextLine();
+               permanen5 = scan5.nextLine();
+               seaso5 = scan5.nextLine();
+               colo5 = scan5.nextLine();
+               occasio5 = scan5.nextLine();
+               typ5 = scan5.nextLine();
+               ide5 = scan5.nextLine();
+               shirtArray.add(new Shirt(stackabl5, permanen5, seaso5, colo5, occasio5, typ5, ide5));
+               
+               clothingListTable5.setValueAt(shirtArray.get(cntr5).getStackable(), cntr5, 0);
+               clothingListTable5.setValueAt(shirtArray.get(cntr5).getPermanent(), cntr5, 5);
+               clothingListTable5.setValueAt(shirtArray.get(cntr5).getSeason(), cntr5, 2);
+               clothingListTable5.setValueAt(shirtArray.get(cntr5).getColor(), cntr5, 5);
+               clothingListTable5.setValueAt(shirtArray.get(cntr5).getOccasion(), cntr5, 5);
+               clothingListTable5.setValueAt(shirtArray.get(cntr5).getType(), cntr5, 5);
+               clothingListTable5.setValueAt(shirtArray.get(cntr5).getID(), cntr5, 6);
+               
+               cntr5 = cntr5 + 1;
+            }
+         } catch (IOException d) {
+      d.printStackTrace();
+      }
         // PANTS Panel
         
         JPanel pantsPanel = new JPanel();
@@ -1716,6 +2157,44 @@ public class TabDemoEXP implements ActionListener{
         layoutConst.gridy = 5;
         pantsPanel.add(removePantsField, layoutConst);
         
+        //***************************************PUT AT END OF EACH PANEL
+        //INSTANTIATING THE SHIRTS ARRAY USING THE FILE ALREADY CREATED
+         try {
+            File file = new File("pantssFile.txt");
+            Scanner scan6 = new Scanner(file);
+            
+            String stackabl6 = " ";
+            String permanen6 = " ";
+            String seaso6 = " ";
+            String colo6 = " ";
+            String occasio6 = " ";
+            String typ6 = " ";
+            String ide6 = " ";
+            int cntr6 = 0;
+            while(scan6.hasNext() && cntr6<10){
+               stackabl6 = scan6.nextLine();
+               permanen6 = scan6.nextLine();
+               seaso6 = scan6.nextLine();
+               colo6 = scan6.nextLine();
+               occasio6 = scan6.nextLine();
+               typ6 = scan6.nextLine();
+               ide6 = scan6.nextLine();
+               pantsArray.add(new Pants(stackabl6, permanen6, seaso6, colo6, occasio6, typ6, ide6));
+               
+               clothingListTable6.setValueAt(pantsArray.get(cntr6).getStackable(), cntr6, 0);
+               clothingListTable6.setValueAt(pantsArray.get(cntr6).getPermanent(), cntr6, 1);
+               clothingListTable6.setValueAt(pantsArray.get(cntr6).getSeason(), cntr6, 2);
+               clothingListTable6.setValueAt(pantsArray.get(cntr6).getColor(), cntr6, 3);
+               clothingListTable6.setValueAt(pantsArray.get(cntr6).getOccasion(), cntr6, 4);
+               clothingListTable6.setValueAt(pantsArray.get(cntr6).getType(), cntr6, 5);
+               clothingListTable6.setValueAt(pantsArray.get(cntr6).getID(), cntr6, 6);
+               
+               cntr6 = cntr6 + 1;
+            }
+         } catch (IOException d) {
+      d.printStackTrace();
+      }
+        
         // SHOES Panel
         
         JPanel shoesPanel = new JPanel();
@@ -1897,6 +2376,44 @@ public class TabDemoEXP implements ActionListener{
         layoutConst.gridx = 1;
         layoutConst.gridy = 5;
         shoesPanel.add(removeShoesField, layoutConst);
+        
+        //***************************************PUT AT END OF EACH PANEL
+        //INSTANTIATING THE SHIRTS ARRAY USING THE FILE ALREADY CREATED
+         try {
+            File file = new File("shoesFile.txt");
+            Scanner scan7 = new Scanner(file);
+            
+            String stackabl7 = " ";
+            String permanen7 = " ";
+            String seaso7 = " ";
+            String colo7 = " ";
+            String occasio7 = " ";
+            String typ7 = " ";
+            String ide7 = " ";
+            int cntr7 = 0;
+            while(scan7.hasNext() && cntr7<10){
+               stackabl7 = scan7.nextLine();
+               permanen7 = scan7.nextLine();
+               seaso7 = scan7.nextLine();
+               colo7 = scan7.nextLine();
+               occasio7 = scan7.nextLine();
+               typ7 = scan7.nextLine();
+               ide7 = scan7.nextLine();
+               shoeArray.add(new Shoe(stackabl7, permanen7, seaso7, colo7, occasio7, typ7, ide7));
+               
+               clothingListTable7.setValueAt(shoeArray.get(cntr7).getStackable(), cntr7, 0);
+               clothingListTable7.setValueAt(shoeArray.get(cntr7).getPermanent(), cntr7, 1);
+               clothingListTable7.setValueAt(shoeArray.get(cntr7).getSeason(), cntr7, 2);
+               clothingListTable7.setValueAt(shoeArray.get(cntr7).getColor(), cntr7, 3);
+               clothingListTable7.setValueAt(shoeArray.get(cntr7).getOccasion(), cntr7, 4);
+               clothingListTable7.setValueAt(shoeArray.get(cntr7).getType(), cntr7, 5);
+               clothingListTable7.setValueAt(shoeArray.get(cntr7).getID(), cntr7, 6);
+               
+               cntr7 = cntr7 + 1;
+            }
+         } catch (IOException d) {
+      d.printStackTrace();
+      }
         
         // SOCKS Panel
         
@@ -2081,6 +2598,44 @@ public class TabDemoEXP implements ActionListener{
         layoutConst.gridy = 5;
         socksPanel.add(removeSocksField, layoutConst);
         
+        //***************************************PUT AT END OF EACH PANEL
+        //INSTANTIATING THE SHIRTS ARRAY USING THE FILE ALREADY CREATED
+         try {
+            File file = new File("socksFile.txt");
+            Scanner scan8 = new Scanner(file);
+            
+            String stackabl8 = " ";
+            String permanen8 = " ";
+            String seaso8 = " ";
+            String colo8 = " ";
+            String occasio8 = " ";
+            String typ8 = " ";
+            String ide8 = " ";
+            int cntr8 = 0;
+            while(scan8.hasNext() && cntr8<10){
+               stackabl8 = scan8.nextLine();
+               permanen8 = scan8.nextLine();
+               seaso8 = scan8.nextLine();
+               colo8 = scan8.nextLine();
+               occasio8 = scan8.nextLine();
+               typ8 = scan8.nextLine();
+               ide8 = scan8.nextLine();
+               sockArray.add(new Sock(stackabl8, permanen8, seaso8, colo8, occasio8, typ8, ide8));
+               
+               clothingListTable8.setValueAt(sockArray.get(cntr8).getStackable(), cntr8, 0);
+               clothingListTable8.setValueAt(sockArray.get(cntr8).getPermanent(), cntr8, 1);
+               clothingListTable8.setValueAt(sockArray.get(cntr8).getSeason(), cntr8, 2);
+               clothingListTable8.setValueAt(sockArray.get(cntr8).getColor(), cntr8, 3);
+               clothingListTable8.setValueAt(sockArray.get(cntr8).getOccasion(), cntr8, 4);
+               clothingListTable8.setValueAt(sockArray.get(cntr8).getType(), cntr8, 5);
+               clothingListTable8.setValueAt(sockArray.get(cntr8).getID(), cntr8, 6);
+               
+               cntr8 = cntr8 + 1;
+            }
+         } catch (IOException d) {
+      d.printStackTrace();
+      }
+        
         // OUTFIT Panel
         
         //VARIABLE DEFINITIONS
@@ -2103,6 +2658,7 @@ public class TabDemoEXP implements ActionListener{
  
         pane.add(tabbedPane, BorderLayout.CENTER);
     }
+    
  
     /**
      * Create the GUI and show it.  For thread safety,
@@ -2205,7 +2761,9 @@ public class TabDemoEXP implements ActionListener{
                //TESTING
                System.out.println(glassesArray.get(i).getID());
             }
-         }  
+         } 
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateGlassesFile(); 
       }
       else if(sourceEvent == addGlovesButton){
          //getting all the values in the input table so that a new clothing object can be made from the specified attributes      
@@ -2240,7 +2798,9 @@ public class TabDemoEXP implements ActionListener{
                clothingListTable1.setValueAt(glovesArray.get(i).getType(), i, num5);
                clothingListTable1.setValueAt(glovesArray.get(i).getID(), i, num6);
             }
-         }  
+         } 
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateGlovesFile(); 
       }
       else if(sourceEvent == addHatsButton){
          //getting all the values in the input table so that a new clothing object can be made from the specified attributes      
@@ -2275,7 +2835,8 @@ public class TabDemoEXP implements ActionListener{
                clothingListTable2.setValueAt(hatArray.get(i).getType(), i, num5);
                clothingListTable2.setValueAt(hatArray.get(i).getID(), i, num6);
             }
-         }  
+         } 
+         this.generateHatFile(); 
       }
       else if(sourceEvent == addJacketsButton){
          //getting all the values in the input table so tjacket a new clothing object can be made from the specified attributes      
@@ -2310,7 +2871,9 @@ public class TabDemoEXP implements ActionListener{
                clothingListTable3.setValueAt(jacketArray.get(i).getType(), i, num5);
                clothingListTable3.setValueAt(jacketArray.get(i).getID(), i, num6);
             }
-         }  
+         } 
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateJacketsFile(); 
       }
       else if(sourceEvent == addScarfsButton){
          //getting all the values in the input table so tjacket a new clothing object can be made from the specified attributes      
@@ -2345,7 +2908,9 @@ public class TabDemoEXP implements ActionListener{
                clothingListTable4.setValueAt(scarfArray.get(i).getType(), i, num5);
                clothingListTable4.setValueAt(scarfArray.get(i).getID(), i, num6);
             }
-         }  
+         }
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateScarfsFile();  
       }
       else if(sourceEvent == addShirtsButton){
          //getting all the values in the input table so tjacket a new clothing object can be made from the specified attributes      
@@ -2381,6 +2946,8 @@ public class TabDemoEXP implements ActionListener{
                clothingListTable5.setValueAt(shirtArray.get(i).getID(), i, num6);
             }
          }  
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateShirtsFile();
       }
       else if(sourceEvent == addPantsButton){
          //getting all the values in the input table so tjacket a new clothing object can be made from the specified attributes      
@@ -2416,6 +2983,8 @@ public class TabDemoEXP implements ActionListener{
                clothingListTable6.setValueAt(pantsArray.get(i).getID(), i, num6);
             }
          }  
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generatePantsFile();
       }
       else if(sourceEvent == addShoesButton){
          //getting all the values in the input table so tjacket a new clothing object can be made from the specified attributes      
@@ -2451,6 +3020,8 @@ public class TabDemoEXP implements ActionListener{
                clothingListTable7.setValueAt(shoeArray.get(i).getID(), i, num6);
             }
          }  
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateShoesFile();
       }
       
       else if(sourceEvent == addSocksButton){
@@ -2487,6 +3058,8 @@ public class TabDemoEXP implements ActionListener{
                clothingListTable8.setValueAt(sockArray.get(i).getID(), i, num6);
             }
          }  
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateSocksFile();
       }
       else if(sourceEvent == removeGlassesButton){
          String id = removeGlassesField.getText();
@@ -2518,6 +3091,8 @@ public class TabDemoEXP implements ActionListener{
                i = i+1;
                // Update table with content in the clothingListArray ArrayList
          }
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateGlassesFile();
       
       }
       else if(sourceEvent == removeGlovesButton){
@@ -2550,6 +3125,8 @@ public class TabDemoEXP implements ActionListener{
                i = i+1;
                // Update table with content in the clothingListArray ArrayList
          }
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateGlovesFile();
       
       }
       else if(sourceEvent == removeHatsButton){
@@ -2582,6 +3159,7 @@ public class TabDemoEXP implements ActionListener{
                i = i+1;
                // Update table with content in the clothingListArray ArrayList
          }
+         this.generateHatFile();
       
       }
       else if(sourceEvent == removeJacketsButton){
@@ -2614,6 +3192,8 @@ public class TabDemoEXP implements ActionListener{
                i = i+1;
                // Update table with content in the clothingListArray ArrayList
          }
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateJacketsFile();
       
       }
       else if(sourceEvent == removeScarfsButton){
@@ -2646,6 +3226,8 @@ public class TabDemoEXP implements ActionListener{
                i = i+1;
                // Update table with content in the clothingListArray ArrayList
          }
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateScarfsFile();
       
       }
       else if(sourceEvent == removeShirtsButton){
@@ -2678,6 +3260,8 @@ public class TabDemoEXP implements ActionListener{
                i = i+1;
                // Update table with content in the clothingListArray ArrayList
          }
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateShirtsFile();
       
       }
       else if(sourceEvent == removePantsButton){
@@ -2710,6 +3294,8 @@ public class TabDemoEXP implements ActionListener{
                i = i+1;
                // Update table with content in the clothingListArray ArrayList
          }
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generatePantsFile();
       
       }
       else if(sourceEvent == removeShoesButton){
@@ -2742,6 +3328,8 @@ public class TabDemoEXP implements ActionListener{
                i = i+1;
                // Update table with content in the clothingListArray ArrayList
          }
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateShoesFile();
       
       }
       else if(sourceEvent == removeSocksButton){
@@ -2774,6 +3362,8 @@ public class TabDemoEXP implements ActionListener{
                i = i+1;
                // Update table with content in the clothingListArray ArrayList
          }
+         //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
+      this.generateSocksFile();
       
       }
       
