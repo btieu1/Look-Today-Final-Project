@@ -71,7 +71,33 @@ public class Warddrobe{
       }
       
    }
-   
+   public ArrayList<Hat> getHatArray(){
+      return this.hats;
+   }
+   public ArrayList<Scarf> getScarfArray(){
+      return this.scarves;
+   }
+   public ArrayList<Glasses> getGlassesArray(){
+      return this.glasses;
+   }
+   public ArrayList<Shirt> getShirtArray(){
+      return this.shirts;
+   }
+   public ArrayList<Jacket> getJacketArray(){
+      return this.jackets;
+   }
+   public ArrayList<Glove> getGlovesArray(){
+      return this.gloves;
+   }
+   public ArrayList<Pants> getPantsArray(){
+      return this.pants;
+   }
+   public ArrayList<Sock> getSocksArray(){
+      return this.socks;
+   }
+   public ArrayList<Shoe> getShoesArray(){
+      return this.shoes;
+   }
    public String[] getColorPalette(String primeColor){
       String[] colors = new String[5];
       if(primeColor.equals("beige")){
