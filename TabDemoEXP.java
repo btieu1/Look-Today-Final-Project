@@ -19,8 +19,51 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.*;
+import java.util.*;
+import java.io.*;
+import java.net.*;
+import java.net.URL;
 
 public class TabDemoEXP implements ActionListener{
+    protected String temp;
+    protected String condition; 
+    ////////////////////////WEATHER FETCHER/////////////////////////////////
+    public void fetchWeather(String zip){
+      
+      String API_KEY = "10f1da3b41ce747a4adbf1960794ffe2";
+      String LOCATION = zip + ",us";
+      String urlString = "http://api.openweathermap.org/data/2.5/weather?q="+LOCATION + "&appid=" +API_KEY+"&units=imperial";
+      
+      try{
+      StringBuilder result = new StringBuilder();
+      URL url = new URL(urlString);
+      URLConnection conn = url.openConnection();
+      BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+      String line;
+      
+      while((line = rd.readLine()) != null){
+         result.append(line);
+      }
+      rd.close();
+      String data = result.toString();
+      
+      int index = data.indexOf("temp");
+      String temp = "" + data.substring(index+6,index+10);
+      this.temp = temp;
+      
+      int index1 = data.indexOf("main");
+      String yeet = data.substring(index1+7,index1+18);
+      int index2 = yeet.indexOf(",");
+      this.condition = yeet.substring(0,index2-1); 
+    }
+    
+    catch(IOException e){
+      System.out.println(e.getMessage());
+    }
+    }
+    ////////////////////////////////////////////////////////////////////////
+    
+    
     // panel names for each clothing type - these names correspond to the tab names
     final static String GLASSESPANEL = "Glasses";
     final static String GLOVESPANEL = "Gloves";
@@ -120,7 +163,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    private JFormattedTextField idField = new JFormattedTextField("");      
+    private JFormattedTextField idField = new JFormattedTextField(20);      
     
     //JLabels for all the attribute names
     private JLabel stackableLabel = new JLabel("Stackable:");                     
@@ -154,7 +197,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox1 = new JComboBox(occasionsArray1);
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    JFormattedTextField idField1 = new JFormattedTextField("");     
+    JFormattedTextField idField1 = new JFormattedTextField(20);     
     
     //JLabels for all the attribute names
     private JLabel stackableLabel1 = new JLabel("Stackable:");                     
@@ -194,7 +237,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox2 = new JComboBox(occasionsArray2);
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    private JFormattedTextField idField2 = new JFormattedTextField("");      
+    private JFormattedTextField idField2 = new JFormattedTextField(10);      
     
     //JLabels for all the attribute names
     private JLabel stackableLabel2 = new JLabel("Stackable:");                     
@@ -231,7 +274,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox3 = new JComboBox(occasionsArray3);
     
     //TextField names for all the various attributes that will be needed for Clothing types
-    private JFormattedTextField idField3 = new JFormattedTextField("");      
+    private JFormattedTextField idField3 = new JFormattedTextField(10);      
    
     //JLabels for all the attribute names
     private JLabel stackableLabel3 = new JLabel("Stackable:");                     
@@ -269,7 +312,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField4 = new JFormattedTextField("");      
+    private JFormattedTextField idField4 = new JFormattedTextField(10);      
     //JLabels for all the attribute names
     private JLabel stackableLabel4 = new JLabel("Stackable:");                     
     private JLabel permanentLabel4 = new JLabel("Permanent:");                   
@@ -305,7 +348,7 @@ public class TabDemoEXP implements ActionListener{
     JComboBox occasionsBox5 = new JComboBox(occasionsArray5);
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField5 = new JFormattedTextField("");      
+    private JFormattedTextField idField5 = new JFormattedTextField(10);      
     //JLabels for all the attribute names
     private JLabel stackableLabel5 = new JLabel("Stackable:");                     
     private JLabel permanentLabel5 = new JLabel("Permanent:");                   
@@ -342,7 +385,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField6 = new JFormattedTextField("");      
+    private JFormattedTextField idField6 = new JFormattedTextField(10);      
     //JLabels for all the attribute names
     private JLabel stackableLabel6 = new JLabel("Stackable:");                     
     private JLabel permanentLabel6 = new JLabel("Permanent:");                   
@@ -379,7 +422,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField7 = new JFormattedTextField("");      
+    private JFormattedTextField idField7 = new JFormattedTextField(10);      
     //JLabels for all the attribute names
     private JLabel stackableLabel7 = new JLabel("Stackable:");                     
     private JLabel permanentLabel7 = new JLabel("Permanent:");                   
@@ -416,7 +459,7 @@ public class TabDemoEXP implements ActionListener{
     
     
     //TextField names for all the various attributes tjacket will be needed for Clothing types
-    private JFormattedTextField idField8 = new JFormattedTextField("");      
+    private JFormattedTextField idField8 = new JFormattedTextField(10);      
     //JLabels for all the attribute names
     private JLabel stackableLabel8 = new JLabel("Stackable:");                     
     private JLabel permanentLabel8 = new JLabel("Permanent:");                   
