@@ -1,4 +1,7 @@
 import java.util.*;
+import java.io.*;
+import java.net.*;
+import java.net.URL;
 import java.lang.Math; 
 
 public class Warddrobe{
@@ -27,6 +30,10 @@ public class Warddrobe{
    private ArrayList<Shoe> sShoes;
    
    private Outfit[] outfits;
+   
+   protected String temp;
+    protected String condition; 
+    
    //constructor takes in arraylists
    public Warddrobe(ArrayList<Hat> hats, ArrayList<Scarf> scarves,ArrayList<Glasses> glasses, ArrayList<Shirt> shirts, ArrayList<Jacket> jackets, ArrayList<Glove> gloves, ArrayList<Pants> pants, ArrayList<Sock> socks, ArrayList<Shoe> shoes){
       this.hats = hats;
@@ -69,8 +76,8 @@ public class Warddrobe{
       for(int i = 0; i<shoes.size(); i++){
          this.wardrobe.add(shoes.get(i));
       }
-      
    }
+   
    public ArrayList<Hat> getHatArray(){
       return this.hats;
    }
@@ -98,6 +105,42 @@ public class Warddrobe{
    public ArrayList<Shoe> getShoesArray(){
       return this.shoes;
    }
+   
+    ////////////////////////WEATHER FETCHER/////////////////////////////////
+    public void fetchWeather(String zip){
+      
+      String API_KEY = "10f1da3b41ce747a4adbf1960794ffe2";
+      String LOCATION = zip + ",us";
+      String urlString = "http://api.openweathermap.org/data/2.5/weather?q="+LOCATION + "&appid=" +API_KEY+"&units=imperial";
+      
+      try{
+      StringBuilder result = new StringBuilder();
+      URL url = new URL(urlString);
+      URLConnection conn = url.openConnection();
+      BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+      String line;
+      
+      while((line = rd.readLine()) != null){
+         result.append(line);
+      }
+      rd.close();
+      String data = result.toString();
+      
+      int index = data.indexOf("temp");
+      String temp = "" + data.substring(index+6,index+10);
+      this.temp = temp;
+      
+      int index1 = data.indexOf("main");
+      String yeet = data.substring(index1+7,index1+18);
+      int index2 = yeet.indexOf(",");
+      this.condition = yeet.substring(0,index2-1); 
+    }
+    
+    catch(IOException e){
+      System.out.println(e.getMessage());
+    }
+    }
+   
    public String[] getColorPalette(String primeColor){
       String[] colors = new String[5];
       if(primeColor.equals("beige")){
@@ -168,18 +211,19 @@ public class Warddrobe{
       }
    }
    
-   public Outfit[] matches(String occasion, String season, String primeColor){
+   public Outfit[] matches(String occasion, String season, String primeColor, String zip){
       Condense(occasion, season, primeColor);
       Outfit[] outfits = new Outfit[25];
+      fetchWeather(zip);
       
       int number = 0; //counts the index of each outfit
       
       while(number<25){ //25 outfits
          Clothing[] list = new Clothing[9];//0 = shirt, 1 = jacket, 2 = pants, 3 = sock, 4 = shoe, 5 = scarf, 6 = glove, 7 = glasses, 8 = hat
-         int curr = (int)(Math.random() * 11);
+         int curr = (int)(Math.random() * 12);
          
          //default, no jacket
-            if(curr == 2 && !season.equals("winter")){
+            if(curr == 11 && !season.equals("winter") && Double.valueOf(this.temp)>55){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
                   if(this.sWardrobe.get(ran) instanceof Shirt){
@@ -216,7 +260,7 @@ public class Warddrobe{
                }
                
          //5,6,7
-         if(curr == 10 && season.equals("winter")){
+         if(curr == 10 && season.equals("winter") && Double.valueOf(this.temp)<45){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
                   if(this.sWardrobe.get(ran) instanceof Shirt){
@@ -286,7 +330,7 @@ public class Warddrobe{
 
          
          //5,6,7,8
-         if(curr == 9 && season.equals("winter")){
+         if(curr == 9 && season.equals("winter") && Double.valueOf(this.temp)<40){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
                   if(this.sWardrobe.get(ran) instanceof Shirt){
@@ -364,7 +408,7 @@ public class Warddrobe{
 
          
          //6,7
-         if(curr == 8 && season.equals("winter")){
+         if(curr == 8 && season.equals("winter") && Double.valueOf(this.temp)<45){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
                   if(this.sWardrobe.get(ran) instanceof Shirt){
@@ -426,7 +470,7 @@ public class Warddrobe{
 
          
          //6,7,8
-         if(curr == 7 && season.equals("winter")){
+         if(curr == 7 && season.equals("winter") && Double.valueOf(this.temp)<45){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
                   if(this.sWardrobe.get(ran) instanceof Shirt){
@@ -558,7 +602,7 @@ public class Warddrobe{
 
          
          //5,6
-         if(curr == 5 && season.equals("winter")){
+         if(curr == 5 && season.equals("winter") && Double.valueOf(this.temp)<45){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
                   if(this.sWardrobe.get(ran) instanceof Shirt){
@@ -815,7 +859,7 @@ public class Warddrobe{
                }
                
                //6
-               if(curr == 0 && season.equals("winter")){
+               if(curr == 0 && season.equals("winter") && Double.valueOf(this.temp)<55){
                for(int i = 0; i<30; i++){
                   int ran = (int)(Math.random()*sWardrobe.size());
                   if(this.sWardrobe.get(ran) instanceof Shirt){
@@ -860,13 +904,30 @@ public class Warddrobe{
                }
                number++;
             }
+            
+            //eliminates duplicates 
+         for(int i = 0; i<outfits.length; i++){
+            if(outfits[i] != null){
+               String temp = outfits[i].toString();
+               for(int j = i; j<outfits.length; j++){
+                  if(outfits[j] != null){
+                     if(temp.equals(outfits[j].toString())){
+                        outfits[j] = null;
+                     }
+                  }
+               }
+            }
+         }
+         
          this.outfits = outfits;
       return outfits;
    }
    
    public void printOutfits(){
       for(int i = 0; i<this.outfits.length; i++){
-         System.out.println(this.outfits[i]);
+         if(this.outfits[i] != null){
+            System.out.println(this.outfits[i]);
+            }
          }
    }
    
