@@ -10,7 +10,11 @@ public class login extends JFrame {
   JTextField pass;
   JButton changePassword;
   JLabel password;
-
+  
+  JButton zcodeButton;
+  JLabel zcodeLabel;
+  JTextField zcodeField;  
+  
   public TabDemoEXP demo;
   public TabDemoEXP recordedVersion;
 
@@ -22,16 +26,21 @@ public class login extends JFrame {
     loginpanel = new JPanel();
     pass = new JPasswordField(15);
     changePassword = new JButton("Change Password");
-    password = new JLabel("Pass - ");
+    password = new JLabel("Pass: ");
 
     setSize(300,200);
     setLocation(500,280);
     loginpanel.setLayout (null); 
 
 
+    setSize(300,200);
+    setLocation(500,280);
+    loginpanel.setLayout (null); 
+
+    //
     pass.setBounds(70,65,150,20);
     blogin.setBounds(110,100,80,20);
-    changePassword.setBounds(110,135,80,20);
+    changePassword.setBounds(70,135,170,20);
     password.setBounds(20,63,80,20);
 
     loginpanel.add(blogin);
@@ -46,7 +55,7 @@ public class login extends JFrame {
     Writer writer = null;
     File check = new File("userPass.txt");
     if(check.exists()){
-
+    
       //Checks if the file exists. will not add anything if the file does exist.
     }else{
       try{
@@ -57,9 +66,9 @@ public class login extends JFrame {
         e.printStackTrace();
       }
     }
-
-
-
+    
+        
+    
 
     blogin.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
