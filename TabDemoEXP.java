@@ -154,7 +154,7 @@ public class TabDemoEXP implements ActionListener{
     String[] trufalsArray = {"true", "false"};
     JComboBox trufalsBox = new JComboBox(trufalsArray);
     //Box for season types
-    String[] seasonsArray = {"N/A"};
+    String[] seasonsArray = {"Winter", "Spring", "Summer", "Fall"};
     JComboBox seasonsBox = new JComboBox(seasonsArray);
     //Box for Colors
     String[] colorsArray = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green", "Blue", "Black", "White", "Lime", "Cyan", "Violet", "Turquoise"};
@@ -189,7 +189,7 @@ public class TabDemoEXP implements ActionListener{
     String[] trufalsArray1 = {"true", "false"};
     JComboBox trufalsBox1 = new JComboBox(trufalsArray1);
     //Box for season types
-    String[] seasonsArray1 = {"N/A"};
+    String[] seasonsArray1 = {"Winter", "Spring", "Summer", "Fall"};
     JComboBox seasonsBox1 = new JComboBox(seasonsArray1);
     //Box for Colors
     String[] colorsArray1 = {"Beige", "Gray", "Pink", "Purple", "Red", "Brown", "Orange", "Yellow", "Olive", "Green", "Blue", "Black", "White", "Lime", "Cyan", "Violet", "Turquoise"};
@@ -2774,6 +2774,7 @@ public class TabDemoEXP implements ActionListener{
         NumberFormat currencyFormatO = null;
         
         JTextArea outfitArea = new JTextArea(10, 15);
+        outfitArea.setEditable(false);
         JScrollPane outfitPane = new JScrollPane(outfitArea);
         
         JLabel occLabel = new JLabel("Occasion: ");
@@ -2794,19 +2795,44 @@ public class TabDemoEXP implements ActionListener{
         JButton outfitButton = new JButton("Create Outfit");
         outfitButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
+           
                System.out.println(warddrobe.getHatArray().toString());
+               
                String oc = occField.getText();
-               String se = occField.getText();
-               String co = occField.getText();
-               String zip = occField.getText();
+               String se = seasField.getText();
+               String co = colField.getText();
+               String zip = zipField.getText();
                
+               System.out.println(oc+" " +se+" "+co+" "+zip);
+               
+               //resetting wardrobed
+               warddrobe.setHats(hatArray);
+               warddrobe.setScarfs(scarfArray);
+               warddrobe.setGlasses(glassesArray);
+               warddrobe.setShirts(shirtArray);
+               warddrobe.setJackets(jacketArray);
+               warddrobe.setGloves(glovesArray);
+               warddrobe.setPants(pantsArray);
+               warddrobe.setSocks(sockArray);
+               warddrobe.setShoes(shoeArray);
+               //calling matches
                Outfit[] outfitsToday = warddrobe.matches(oc, se, co, zip);
-               
+               boolean triggered = false;
+               System.out.println(outfitsToday.length);
                for(int i = 0;i<outfitsToday.length;i++){
-                  if(!(outfitsToday[i]==null))
-                     outfitArea.append("Outfit 1: "+ outfitsToday[i].toString()+"\n");
+                  if(!(outfitsToday[i]==null)){
+                     outfitArea.append("Outfit "+i+": "+ outfitsToday[i].toString()+"\n");
+                     triggered = true;
+                  }
                }
-            }
+               if(!triggered){
+                        JOptionPane.showMessageDialog(null,"No Outfits - Buy More Clothes", "", JOptionPane.YES_NO_CANCEL_OPTION);
+                        TabDemoEXP demo = new TabDemoEXP();
+                     }
+                    
+                  
+                  
+               }
          });
          
          outfitPanel.setLayout(new GridBagLayout());
@@ -3009,6 +3035,7 @@ public class TabDemoEXP implements ActionListener{
          } 
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateGlassesFile(); 
+      this.updateWarddrobe();
       }
       else if(sourceEvent == addGlovesButton){
          //getting all the values in the input table so that a new clothing object can be made from the specified attributes      
@@ -3046,6 +3073,7 @@ public class TabDemoEXP implements ActionListener{
          } 
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateGlovesFile(); 
+      this.updateWarddrobe();
       }
       else if(sourceEvent == addHatsButton){
          //getting all the values in the input table so that a new clothing object can be made from the specified attributes      
@@ -3082,6 +3110,7 @@ public class TabDemoEXP implements ActionListener{
             }
          } 
          this.generateHatFile(); 
+         this.updateWarddrobe();
       }
       else if(sourceEvent == addJacketsButton){
          //getting all the values in the input table so tjacket a new clothing object can be made from the specified attributes      
@@ -3119,6 +3148,7 @@ public class TabDemoEXP implements ActionListener{
          } 
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateJacketsFile(); 
+      this.updateWarddrobe();
       }
       else if(sourceEvent == addScarfsButton){
          //getting all the values in the input table so tjacket a new clothing object can be made from the specified attributes      
@@ -3156,6 +3186,7 @@ public class TabDemoEXP implements ActionListener{
          }
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateScarfsFile();  
+      this.updateWarddrobe();
       }
       else if(sourceEvent == addShirtsButton){
          //getting all the values in the input table so tjacket a new clothing object can be made from the specified attributes      
@@ -3193,6 +3224,7 @@ public class TabDemoEXP implements ActionListener{
          }  
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateShirtsFile();
+      this.updateWarddrobe();
       }
       else if(sourceEvent == addPantsButton){
          //getting all the values in the input table so tjacket a new clothing object can be made from the specified attributes      
@@ -3230,6 +3262,7 @@ public class TabDemoEXP implements ActionListener{
          }  
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generatePantsFile();
+      this.updateWarddrobe();
       }
       else if(sourceEvent == addShoesButton){
          //getting all the values in the input table so tjacket a new clothing object can be made from the specified attributes      
@@ -3267,6 +3300,7 @@ public class TabDemoEXP implements ActionListener{
          }  
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateShoesFile();
+      this.updateWarddrobe();
       }
       
       else if(sourceEvent == addSocksButton){
@@ -3303,8 +3337,10 @@ public class TabDemoEXP implements ActionListener{
                clothingListTable8.setValueAt(sockArray.get(i).getID(), i, num6);
             }
          }  
+         this.updateWarddrobe();
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateSocksFile();
+      this.updateWarddrobe();
       }
       else if(sourceEvent == removeGlassesButton){
          String id = removeGlassesField.getText();
@@ -3338,7 +3374,7 @@ public class TabDemoEXP implements ActionListener{
          }
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateGlassesFile();
-      
+      this.updateWarddrobe();
       }
       else if(sourceEvent == removeGlovesButton){
          String id1 = removeGlovesField.getText();
@@ -3372,7 +3408,7 @@ public class TabDemoEXP implements ActionListener{
          }
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateGlovesFile();
-      
+      this.updateWarddrobe();
       }
       else if(sourceEvent == removeHatsButton){
          String id = removeHatsField.getText();
@@ -3405,7 +3441,7 @@ public class TabDemoEXP implements ActionListener{
                // Update table with content in the clothingListArray ArrayList
          }
          this.generateHatFile();
-      
+      this.updateWarddrobe();
       }
       else if(sourceEvent == removeJacketsButton){
          String id = removeJacketsField.getText();
@@ -3439,7 +3475,7 @@ public class TabDemoEXP implements ActionListener{
          }
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateJacketsFile();
-      
+      this.updateWarddrobe();
       }
       else if(sourceEvent == removeScarfsButton){
          String id = removeScarfsField.getText();
@@ -3473,7 +3509,7 @@ public class TabDemoEXP implements ActionListener{
          }
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateScarfsFile();
-      
+      this.updateWarddrobe();
       }
       else if(sourceEvent == removeShirtsButton){
          String id = removeShirtsField.getText();
@@ -3507,7 +3543,7 @@ public class TabDemoEXP implements ActionListener{
          }
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateShirtsFile();
-      
+      this.updateWarddrobe();
       }
       else if(sourceEvent == removePantsButton){
          String id = removePantsField.getText();
@@ -3541,7 +3577,7 @@ public class TabDemoEXP implements ActionListener{
          }
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generatePantsFile();
-      
+      this.updateWarddrobe();
       }
       else if(sourceEvent == removeShoesButton){
          String id = removeShoesField.getText();
@@ -3575,7 +3611,7 @@ public class TabDemoEXP implements ActionListener{
          }
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateShoesFile();
-      
+      this.updateWarddrobe();
       }
       else if(sourceEvent == removeSocksButton){
          String id = removeSocksField.getText();
@@ -3609,12 +3645,22 @@ public class TabDemoEXP implements ActionListener{
          }
          //THIS IS TO CALL THE FILE GENERATOR FOR BOTH THE REMOVE AND ADD BUTTONS 
       this.generateSocksFile();
-      
+      this.updateWarddrobe();
       }
       
+      
          
 }
-         
+    public void updateWarddrobe(){
+         warddrobe.setHats(hatArray);
+         warddrobe.setScarfs(scarfArray);
+         warddrobe.setGlasses(glassesArray);
+         warddrobe.setShirts(shirtArray);
+         warddrobe.setJackets(jacketArray);
+         warddrobe.setGloves(glovesArray);
+         warddrobe.setPants(pantsArray);
+         warddrobe.setSocks(sockArray);
+         warddrobe.setShoes(shoeArray);
+      }     
 
 }
-
