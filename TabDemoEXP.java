@@ -148,7 +148,7 @@ public class TabDemoEXP implements ActionListener{
     String[] typesGlassesArray = {"Sunglasses","Prescription Glasses"};
     JComboBox typesGlassesBox = new JComboBox(typesGlassesArray);
     //Box for yes and no
-    String[] yesnoArray = {"yes", "no"};
+    String[] yesnoArray = {"true", "false"};
     JComboBox yesnoBox = new JComboBox(yesnoArray);
     //Box for True and False
     String[] trufalsArray = {"true", "false"};
@@ -183,7 +183,7 @@ public class TabDemoEXP implements ActionListener{
     //*******GLOVES VARIABLES*********
     //*********************************
     //Box for yes and no
-    String[] yesnoArray1 = {"yes", "no"};
+    String[] yesnoArray1 = {"true", "false"};
     JComboBox yesnoBox1 = new JComboBox(yesnoArray1);
     //Box for True and False
     String[] trufalsArray1 = {"true", "false"};
@@ -223,7 +223,7 @@ public class TabDemoEXP implements ActionListener{
     String[] typesHatsArray = {"Top Hat", "Fedora", "Sombrero", "Sports Cap", "Sun Hat"};
     JComboBox typesHatsBox = new JComboBox(typesHatsArray);
     //Box for yes and no
-    String[] yesnoArray2 = {"yes", "no"};
+    String[] yesnoArray2 = {"true", "false"};
     JComboBox yesnoBox2 = new JComboBox(yesnoArray2);
     //Box for True and False
     String[] trufalsArray2 = {"true", "false"};
@@ -260,7 +260,7 @@ public class TabDemoEXP implements ActionListener{
     String[] typesJacketsArray = {"Vest", "Leather", "Sweatshirt", "Hoodie", "Sweater", "Trenchcoat"};
     JComboBox typesJacketsBox = new JComboBox(typesJacketsArray);
     //Box for yes and no
-    String[] yesnoArray3 = {"yes", "no"};
+    String[] yesnoArray3 = {"true", "false"};
     JComboBox yesnoBox3 = new JComboBox(yesnoArray3);
     //Box for True and False
     String[] trufalsArray3 = {"true", "false"};
@@ -297,7 +297,7 @@ public class TabDemoEXP implements ActionListener{
     String[] typesScarfsArray = {"Fur", "Wool", "Silk", "Plaid"};
     JComboBox typesScarfsBox = new JComboBox(typesScarfsArray);
     //Box for yes and no
-    String[] yesnoArray4 = {"yes", "no"};
+    String[] yesnoArray4 = {"true", "false"};
     JComboBox yesnoBox4 = new JComboBox(yesnoArray4);
     //Box for True and False
     String[] trufalsArray4 = {"true", "false"};
@@ -334,7 +334,7 @@ public class TabDemoEXP implements ActionListener{
     String[] typesShirtsArray = {"Long Sleeved Cotton", "Short Sleeved Cotton", "Long Sleeved Athletic", "Short Sleeved Athletic", "Long Sleeved Wool", "Short Sleeved Wool", "Muscle Shirt"};
     JComboBox typesShirtsBox = new JComboBox(typesShirtsArray);
     //Box for yes and no
-    String[] yesnoArray5 = {"yes", "no"};
+    String[] yesnoArray5 = {"true", "false"};
     JComboBox yesnoBox5 = new JComboBox(yesnoArray5);
     //Box for True and False
     String[] trufalsArray5 = {"true", "false"};
@@ -370,7 +370,7 @@ public class TabDemoEXP implements ActionListener{
     String[] typesPantsArray = {"Jean Shorts", "Jean Pants", "Khaki Pants", "Khaki Shorts", "Sport Pants", "Athletic Shorts", "Lined Jeans"};
     JComboBox typesPantsBox = new JComboBox(typesPantsArray);
     //Box for yes and no
-    String[] yesnoArray6 = {"yes", "no"};
+    String[] yesnoArray6 = {"true", "false"};
     JComboBox yesnoBox6 = new JComboBox(yesnoArray6);
     //Box for True and False
     String[] trufalsArray6 = {"true", "false"};
@@ -407,7 +407,7 @@ public class TabDemoEXP implements ActionListener{
     String[] typesShoesArray = {"Sneakers", "Flip Flops", "Basketball", "Cleats", "Nike", "Adidas", "Sperry", "Suede", "Dress", "Boots"};
     JComboBox typesShoesBox = new JComboBox(typesShoesArray);
     //Box for yes and no
-    String[] yesnoArray7 = {"yes", "no"};
+    String[] yesnoArray7 = {"true", "false"};
     JComboBox yesnoBox7 = new JComboBox(yesnoArray7);
     //Box for True and False
     String[] trufalsArray7 = {"true", "false"};
@@ -444,7 +444,7 @@ public class TabDemoEXP implements ActionListener{
     String[] typesSocksArray = {"Long Wool", "Nike", "Ankle", "Silk"};
     JComboBox typesSocksBox = new JComboBox(typesSocksArray);
     //Box for yes and no
-    String[] yesnoArray8 = {"yes", "no"};
+    String[] yesnoArray8 = {"true", "false"};
     JComboBox yesnoBox8 = new JComboBox(yesnoArray8);
     //Box for True and False
     String[] trufalsArray8 = {"true", "false"};
@@ -2793,49 +2793,7 @@ public class TabDemoEXP implements ActionListener{
         zipField.setEditable(true);
         
         JButton outfitButton = new JButton("Create Outfit");
-        outfitButton.addActionListener(new ActionListener() {
-           public void actionPerformed(ActionEvent e) {
-           
-               System.out.println(warddrobe.getHatArray().toString());
-               
-               String oc = occField.getText();
-               String se = seasField.getText();
-               String co = colField.getText();
-               String zip = zipField.getText();
-               
-               System.out.println(oc+" " +se+" "+co+" "+zip);
-               
-               //resetting wardrobed
-               warddrobe.setHats(hatArray);
-               warddrobe.setScarfs(scarfArray);
-               warddrobe.setGlasses(glassesArray);
-               warddrobe.setShirts(shirtArray);
-               warddrobe.setJackets(jacketArray);
-               warddrobe.setGloves(glovesArray);
-               warddrobe.setPants(pantsArray);
-               warddrobe.setSocks(sockArray);
-               warddrobe.setShoes(shoeArray);
-               //calling matches
-               Outfit[] outfitsToday = warddrobe.matches(oc, se, co, zip);
-               boolean triggered = false;
-               System.out.println(outfitsToday.length);
-               for(int i = 0;i<outfitsToday.length;i++){
-                  if(!(outfitsToday[i]==null)){
-                     outfitArea.append("Outfit "+i+": "+ outfitsToday[i].toString()+"\n");
-                     triggered = true;
-                  }
-               }
-               if(!triggered){
-                        JOptionPane.showMessageDialog(null,"No Outfits - Buy More Clothes", "", JOptionPane.YES_NO_CANCEL_OPTION);
-                        TabDemoEXP demo = new TabDemoEXP();
-                     }
-                    
-                  
-                  
-               }
-         });
          
-         outfitPanel.setLayout(new GridBagLayout());
 
          layoutConstO = new GridBagConstraints();
          layoutConstO.insets = new Insets(10, 10, 5, 1);
@@ -2913,6 +2871,59 @@ public class TabDemoEXP implements ActionListener{
          layoutConstO.gridx = 0;
          layoutConstO.gridy = 5;
          outfitPanel.add(outfitPane, layoutConstO);
+         
+         outfitButton.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent e) {
+           
+               //System.out.println(warddrobe.getHatArray().toString());
+               
+               String oc = occField.getText();
+               String se = seasField.getText();
+               String co = colField.getText();
+               String zip = zipField.getText();
+               
+               //System.out.println(oc+" " +se+" "+co+" "+zip);
+               
+               //resetting wardrobed
+               warddrobe.setHats(hatArray);
+               warddrobe.setScarfs(scarfArray);
+               warddrobe.setGlasses(glassesArray);
+               warddrobe.setShirts(shirtArray);
+               warddrobe.setJackets(jacketArray);
+               warddrobe.setGloves(glovesArray);
+               warddrobe.setPants(pantsArray);
+               warddrobe.setSocks(sockArray);
+               warddrobe.setShoes(shoeArray);
+               
+               Warddrobe ward = new Warddrobe(hatArray, scarfArray, glassesArray, shirtArray, jacketArray, glovesArray, pantsArray, sockArray, shoeArray);
+               
+               outfitArea.append(ward.matches(oc, se, co, zip).toString());
+               //ward.matches(oc, se, co, zip);
+               ward.printOutfits();
+               //outfitArea.append(ward.matches(oc, se, co, zip));
+               if(ward.printOutfits()==null){
+                  JOptionPane.showMessageDialog(null,"No Outfits - Buy More Clothes", "", JOptionPane.YES_NO_CANCEL_OPTION);
+               }
+               //for(int f = 0;f<
+               //calling matches
+               /*Outfit[] outfitsToday = warddrobe.matches(oc, se, co, zip);
+               boolean triggered = false;
+               System.out.println(outfitsToday.length);
+               for(int i = 0;i<outfitsToday.length;i++){
+                  if(!(outfitsToday[i]==null)){
+                     outfitArea.append("Outfit "+i+": "+ outfitsToday[i].toString()+"\n");
+                     triggered = true;
+                  }
+               }
+               if(!triggered){
+                        JOptionPane.showMessageDialog(null,"No Outfits - Buy More Clothes", "", JOptionPane.YES_NO_CANCEL_OPTION);
+                        TabDemoEXP demo = new TabDemoEXP();
+                     }*/
+                    
+                  
+                  
+               }
+         });
          
         // adding of various panels to the tab 
         tabbedPane.addTab(GLASSESPANEL, glassesPanel);
