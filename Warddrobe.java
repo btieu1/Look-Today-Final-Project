@@ -170,6 +170,47 @@ public class Warddrobe{
       System.out.println(e.getMessage());
     }
     }
+    
+    //FETCH HOURLY WEATHER//****************************IMPORTANT NOTE: API KEY DOES NOT WORK AND IT COSTS 100$ to get it. THE METHOD WOULD THEORITCALLLY WORK BUT API KEY DOES NOT WORK
+    public void fetchHourlyWeather(String zip, String time, String day){
+      
+      String API_KEY = "10f1da3b41ce747a4adbf1960794ffe2";
+      String LOCATION = zip + ",us";
+      //hourly?q={city name},{country code}
+      String urlString = "http://api.openweathermap.org/data/2.5/hourly?zip="+LOCATION + "&appid=" +API_KEY+"&units=imperial";
+      
+      try{
+      StringBuilder result = new StringBuilder();
+      URL url = new URL(urlString);
+      URLConnection conn = url.openConnection();
+      BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+      String line;
+      
+      while((line = rd.readLine()) != null){
+         result.append(line);
+      }
+      rd.close();
+      String data = result.toString();
+      
+      String dataStart = time + " " + day;
+      
+      int startIndex = data.indexOf(dataStart);
+      String dataDay = data.substring(startIndex, startIndex+300);
+      
+      int index = data.indexOf("temp");
+      String temp = "" + data.substring(index+6,index+10);
+      this.temp = temp;
+      
+      int index1 = data.indexOf("main");
+      String yeet = data.substring(index1+7,index1+18);
+      int index2 = yeet.indexOf(",");
+      this.condition = yeet.substring(0,index2-1); 
+    }
+    
+    catch(IOException e){
+      System.out.println(e.getMessage());
+    }
+    }
    
    public String[] getColorPalette(String primeColor){
       String[] colors = new String[5];
