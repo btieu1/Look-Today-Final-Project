@@ -1,0 +1,8 @@
+LIST OF IMPROVEMENTS:
+
+- Added hourly weather feature, but unfortately you need to spend 100$ on a brand new api key for the feature, so we only have the 
+code and not the actually result. The method should work if the api key workded however.
+
+-Fixed the error with the clothes not displaying
+
+-
