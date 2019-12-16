@@ -5,4 +5,4 @@ code and not the actually result. The method should work if the api key workded 
 
 -Fixed the error with the clothes not displaying
 
--
+-You can now connect your dropbox to the program! Make sure you are logged into dropbox and upload your clothing items onto your dropbox account. Name these items after their IDs. After that, create a sharable link for each image and upload it to the program. The program should read and save those files onto your computer. We are currently working on displaying it on the JFrame. 
